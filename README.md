@@ -1,17 +1,19 @@
 # PERSONAL DOTFILES:
 
-This is the dotfiles repositories for the configurations of common applications used.
+This is the dotfiles repositories for the configurations of common applications used.</br>
 I will continue to add the files for more automization.
 
-INFO:
+_Description:_
+</br>
 I tried to mirror the `$HOME` folder of my machine in this repository. If we need to create the symlink, we just need to follow the folder structure of this repo.
 
 Example:
 
-**NVIM**
+#### Nvim
 
-dotfiles directory: config/nvim
-target directory: {$HOME}/.config/nvim
+dotfiles directory: `config/nvim`
+</br>
+target directory: `{$HOME}/.config/nvim`
 
 ### Creating a symlink:
 For a single file:
