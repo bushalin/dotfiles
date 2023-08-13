@@ -116,6 +116,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias l="ls -la"
 alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias l="ls -la"
 alias d="kitty +kitten diff"
