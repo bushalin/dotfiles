@@ -1,0 +1,44 @@
+# change window focus within space
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+
+# change focus between external displays 
+shift + alt - j : yabai -m display --focus south
+shift + alt - k : yabai -m display --focus north
+shift + alt - h : yabai -m display --focus west
+shift + alt - l : yabai -m display --focus east
+
+# toggle window zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# toggle window float
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# Modifying layout clockwise
+shift + alt - r : yabai -m space --rotate 270
+
+# balance size of windows
+shift + alt + ctrl - r : yabai -m space --balance
+
+# flip along y-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+shift + alt - x : yabai -m space --mirror x-axis
+
+# send window to desktop and follow focus
+shift + alt - n : yabai -m window --space next; yabai -m space --focus next
+
+# make floating window fill screen
+shift + alt - up : yabai -m window --grid 1:1:0:0:1:1
+
+# make floating window left half of the screen
+shift + alt - left : yabai -m window --grid 1:2:0:0:1:1
+
+# swap managed window
+alt - up : yabai -m window --swap north
+alt - down : yabai -m window --swap south
+alt - left : yabai -m window --swap west
+alt - right : yabai -m window --swap east
