@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/hasibulhasan/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/hasibulhasan/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/Users/hasibulhasan/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -121,7 +126,6 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["null-ls.nvim"] = {
-    config = { "\27LJ\2\n•\6\0\0\t\0\24\00006\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\15\0004\4\4\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\0059\5\a\0055\a\t\0005\b\b\0=\b\n\a5\b\v\0=\b\f\aB\5\2\2>\5\2\0049\5\3\0009\5\r\0059\5\14\5>\5\3\4=\4\16\3B\1\2\0016\1\17\0009\1\18\1'\3\19\0B\1\2\0016\1\17\0009\1\18\1'\3\20\0B\1\2\0016\1\17\0009\1\18\1'\3\21\0B\1\2\0016\1\17\0009\1\18\1'\3\22\0B\1\2\0016\1\17\0009\1\18\1'\3\23\0B\1\2\1K\0\1\0Tautocmd FileType typescriptreact autocmd BufWritePre * lua vim.lsp.buf.format()Hautocmd FileType yml autocmd BufWritePre * lua vim.lsp.buf.format()Iautocmd FileType yaml autocmd BufWritePre * lua vim.lsp.buf.format()Oautocmd FileType typescript autocmd BufWritePre * lua vim.lsp.buf.format()Hautocmd FileType lua autocmd BufWritePre * lua vim.lsp.buf.format()\bcmd\bvim\fsources\1\0\0\reslint_d\17code_actions\14filetypes\1\a\0\0\thtml\tyaml\rmarkdown\15typescript\20typescriptreact\tjson\15extra_args\1\0\0\1\4\0\0\fno-semi\19--single-quote\23--jsx-single-quote\twith\14prettierd\vstylua\15formatting\rbuiltins\nsetup\fnull-ls\frequire\0" },
     loaded = true,
     path = "/Users/hasibulhasan/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/bushalin/null-ls.nvim"
@@ -179,7 +183,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-fugitive"
   },
   vimwiki = {
-    config = { "\27LJ\2\nÀ\1\0\0\3\0\6\0\v6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0K\0\1\0\1\0\3\b.md\rmarkdown\v.mdown\rmarkdown\14.markdown\rmarkdown\23vimwiki_ext2syntax\1\0\3\tpath\24~/Documents/vimwiki\bext\b.md\vsyntax\rmarkdown\17vimwiki_list\6g\bvim\0" },
+    config = { "\27LJ\2\nÀ\1\0\0\3\0\6\0\v6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0K\0\1\0\1\0\3\14.markdown\rmarkdown\b.md\rmarkdown\v.mdown\rmarkdown\23vimwiki_ext2syntax\1\0\3\tpath\24~/Documents/vimwiki\bext\b.md\vsyntax\rmarkdown\17vimwiki_list\6g\bvim\0" },
     loaded = true,
     path = "/Users/hasibulhasan/.local/share/nvim/site/pack/packer/start/vimwiki",
     url = "https://github.com/vimwiki/vimwiki"
@@ -187,22 +191,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
-time([[Config for lsp_signature.nvim]], false)
--- Config for: vimwiki
-time([[Config for vimwiki]], true)
-try_loadstring("\27LJ\2\nÀ\1\0\0\3\0\6\0\v6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0K\0\1\0\1\0\3\b.md\rmarkdown\v.mdown\rmarkdown\14.markdown\rmarkdown\23vimwiki_ext2syntax\1\0\3\tpath\24~/Documents/vimwiki\bext\b.md\vsyntax\rmarkdown\17vimwiki_list\6g\bvim\0", "config", "vimwiki")
-time([[Config for vimwiki]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-try_loadstring("\27LJ\2\n•\6\0\0\t\0\24\00006\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\15\0004\4\4\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\0059\5\a\0055\a\t\0005\b\b\0=\b\n\a5\b\v\0=\b\f\aB\5\2\2>\5\2\0049\5\3\0009\5\r\0059\5\14\5>\5\3\4=\4\16\3B\1\2\0016\1\17\0009\1\18\1'\3\19\0B\1\2\0016\1\17\0009\1\18\1'\3\20\0B\1\2\0016\1\17\0009\1\18\1'\3\21\0B\1\2\0016\1\17\0009\1\18\1'\3\22\0B\1\2\0016\1\17\0009\1\18\1'\3\23\0B\1\2\1K\0\1\0Tautocmd FileType typescriptreact autocmd BufWritePre * lua vim.lsp.buf.format()Hautocmd FileType yml autocmd BufWritePre * lua vim.lsp.buf.format()Iautocmd FileType yaml autocmd BufWritePre * lua vim.lsp.buf.format()Oautocmd FileType typescript autocmd BufWritePre * lua vim.lsp.buf.format()Hautocmd FileType lua autocmd BufWritePre * lua vim.lsp.buf.format()\bcmd\bvim\fsources\1\0\0\reslint_d\17code_actions\14filetypes\1\a\0\0\thtml\tyaml\rmarkdown\15typescript\20typescriptreact\tjson\15extra_args\1\0\0\1\4\0\0\fno-semi\19--single-quote\23--jsx-single-quote\twith\14prettierd\vstylua\15formatting\rbuiltins\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
-time([[Config for null-ls.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: vimwiki
+time([[Config for vimwiki]], true)
+try_loadstring("\27LJ\2\nÀ\1\0\0\3\0\6\0\v6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0K\0\1\0\1\0\3\14.markdown\rmarkdown\b.md\rmarkdown\v.mdown\rmarkdown\23vimwiki_ext2syntax\1\0\3\tpath\24~/Documents/vimwiki\bext\b.md\vsyntax\rmarkdown\17vimwiki_list\6g\bvim\0", "config", "vimwiki")
+time([[Config for vimwiki]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
+time([[Config for lsp_signature.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

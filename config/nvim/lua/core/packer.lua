@@ -18,6 +18,8 @@ return require('packer').startup(function(use)
 
   use('tpope/vim-fugitive')
 
+  use('tpope/vim-commentary')
+
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -36,6 +38,10 @@ return require('packer').startup(function(use)
     config = function()
       require("lsp_signature").setup()
     end
+  }
+
+  use {
+    "rafamadriz/friendly-snippets"
   }
 
   use {
