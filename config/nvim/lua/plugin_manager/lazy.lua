@@ -27,8 +27,18 @@ require("lazy").setup({
   {
     'ellisonleao/gruvbox.nvim',
     lazy = false,
+    enabled = true,
     config = function()
-      require("core.plugin_configs.gruvbox")
+      require("core.plugin_configs.colorscheme")
+    end
+  },
+
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    enabled = true,
+    config = function()
+      require("core.plugin_configs.colorscheme.init")
     end
   },
 
