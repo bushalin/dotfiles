@@ -24,12 +24,136 @@ require("lazy").setup({
     end,
   },
 
+  --------------Colorscheme and editor beauty -------------
   {
     'ellisonleao/gruvbox.nvim',
+    priority = 49,
     lazy = false,
+    enabled = true,
     config = function()
-      require("core.plugin_configs.gruvbox")
+      require("core.plugin_configs.colorscheme.gruvbox")
     end
+  },
+
+  {
+    'rebelot/kanagawa.nvim',
+    enabled = true,
+    config = function()
+      require("core.plugin_configs.colorscheme.kanagawa")
+    end
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    lazy = false,
+    event = "VimEnter",
+    config = function()
+      require("core.plugin_configs.lualine")
+    end,
+    requires = {
+      {
+        "kyazdani42/nvim-web-devicons",
+      },
+    }
+  },
+  --------------Colorscheme and editor beauty -------------
+
+
+  --------------LSP related Plugins-------------
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },             -- Required
+      { 'williamboman/mason.nvim' },           -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+      -- Autocompletion
+      {
+        'hrsh7th/nvim-cmp',
+        config = function()
+          require("core.plugin_configs.cmp")
+        end
+      },                          -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      {
+        'L3MON4D3/LuaSnip',
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        dependencies = { "rafamadriz/friendly-snippets" },
+
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+        config = function()
+          require("core.plugin_configs.luasnip")
+        end
+      },
+    },
+    config = function()
+      require("core.plugin_configs.lsp")
+    end
+  },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    lazy = true,
+    event = "InsertEnter",
+    config = function()
+      require("lsp_signature").setup()
+    end
+  },
+
+  {
+    "bushalin/null-ls.nvim",
+    ft = { "js", "html", "yaml", "markdown", "typescript", "typescriptreact", "json", "php" },
+    config = function()
+      require("core.plugin_configs.null-ls")
+    end
+  },
+
+  --------------LSP related Plugins-------------
+
+  --------------DEBUG ADAPTER PROTOCOL RELATED-------------
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("core.plugin_configs.dap.dap")
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("core.plugin_configs.dap.dap-ui")
+    end,
+  },
+  {
+    "leoluz/nvim-dap-go",
+    ft = { "go", "gomod", "gowork", "gotmpl" },
+    config = function()
+      require("core.plugin_configs.dap.dap-go")
+    end,
+  },
+  {
+    'jay-babu/mason-nvim-dap.nvim',
+    event = "VeryLazy",
+    dependencies = {
+      'williamboman/mason.nvim',
+      'mfussenegger/nvim-dap',
+    },
+    opts = {
+      handlers = {}
+    }
+  },
+  --------------DEBUG ADAPTER PROTOCOL RELATED-------------
+
+  --------------Text editor configuration-------------
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = true,
+    event = "BufWinEnter",
+    config = function()
+      require("core.plugin_configs.treesitter")
+    end,
   },
 
   {
@@ -48,6 +172,17 @@ require("lazy").setup({
   },
 
   {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    lazy = true,
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  },
+  --------------Text editor configuration-------------
+
+  --------------misc-------------
+  {
     'tpope/vim-fugitive',
     cmd = { "G" },
   },
@@ -57,91 +192,33 @@ require("lazy").setup({
   },
 
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    dependencies = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },             -- Required
-      { 'williamboman/mason.nvim' },           -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-      -- Autocompletion
-      {
-        'hrsh7th/nvim-cmp',
-        config = function()
-          require("core.plugin_configs.cmp")
-        end
-      },                          -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
-    },
-    config = function()
-      require("core.plugin_configs.lsp")
-    end
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = true,
-    event = "BufWinEnter",
-    config = function()
-      require("core.plugin_configs.treesitter")
-    end,
-  },
-
-  {
-    "ray-x/lsp_signature.nvim",
-    lazy = true,
-    event = "InsertEnter",
-    config = function()
-      require("lsp_signature").setup()
-    end
-  },
-
-  {
     "rafamadriz/friendly-snippets",
     event = "BufWinEnter",
     lazy = true
   },
 
   {
-    "bushalin/null-ls.nvim",
-    ft = {"js", "html", "yaml", "markdown", "typescript", "typescriptreact", "json", "php" },
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
     config = function()
-      require("core.plugin_configs.null-ls")
-    end
-  },
-
-  {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    lazy = true,
-    config = function()
-      require("nvim-autopairs").setup {}
-    end
-  },
-
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = false,
-    event = "VimEnter",
-    config = function()
-      require("core.plugin_configs.lualine")
+      require("go").setup()
     end,
-    requires = {
-      {
-        "kyazdani42/nvim-web-devicons",
-      },
-    }
+    event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
 
-  {
-    "fatih/vim-go",
-    ft = { "go", "gomod", "gowork", "gotmpl" },
-    config = function()
-      require("core.plugin_configs.vim-go")
-    end,
-  },
+  -- {
+  --   "fatih/vim-go",
+  --   ft = { "go", "gomod", "gowork", "gotmpl" },
+  --   config = function()
+  --     require("core.plugin_configs.vim-go")
+  --   end,
+  -- },
 
   {
     'vimwiki/vimwiki',
@@ -162,5 +239,20 @@ require("lazy").setup({
         ['.mdown'] = 'markdown'
       }
     end,
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
   }
+  --------------misc-------------
+
 })
