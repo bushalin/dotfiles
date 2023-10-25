@@ -2395,6 +2395,6 @@ allow_remote_control yes
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Hard
+# Forest Night
 include current-theme.conf
 # END_KITTY_THEME

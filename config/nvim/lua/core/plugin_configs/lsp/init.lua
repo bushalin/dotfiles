@@ -33,17 +33,53 @@ lsp.on_attach(function(client, bufnr)
   -- vim.keymap.set('n', 'xx', '<cmd>Telescope lsp_definitions<cr>')
 end)
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.offsetEncoding = 'utf-8'
+require('lspconfig').clangd.setup {
+  cmd = {
+    "clangd",
+    "--header-insertion=never",
+    "--query-driver=/usr/lib/llvm-14/bin/clang",
+    "--all-scopes-completion",
+    "--completion-style=detailed",
+  },
+  capabilities = capabilities
+}
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-require('lspconfig').intelephense.setup({})
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = 'utf-8'
-require('lspconfig').clangd.setup {
+require('lspconfig').gopls.setup({
   capabilities = capabilities
+})
+
+require('lspconfig').tsserver.setup({
+  capabilities = capabilities
+})
+
+require('lspconfig').intelephense.setup({
+  capabilities = capabilities
+})
+
+require('lspconfig').clangd.setup({
+  capabilities = capabilities
+})
+
+require('lspconfig').cmake.setup({
+  capabilities = capabilities
+})
+
+require('lspconfig').ccls.setup {
+  capabilities = capabilities,
+  init_options = {
+    compilationDatabaseDirectory = "build",
+    index = {
+      threads = 0,
+    },
+    clang = {
+      excludeArgs = { "-frounding-math" },
+    },
+  }
 }
-
-
 
 lsp.setup()

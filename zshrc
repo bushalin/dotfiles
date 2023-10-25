@@ -86,7 +86,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker-compose dotnet web-search)
+plugins=(git docker-compose dotnet web-search zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,3 +121,4 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias l="ls -la"
 alias d="kitty +kitten diff"
+alias gs="git status"
