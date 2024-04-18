@@ -1,10 +1,6 @@
 local lsp = require('lsp-zero').preset({ 'recommended' })
 
 lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-  'gopls',
-  'clangd',
 })
 lsp.setup()
 
