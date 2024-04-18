@@ -10,7 +10,7 @@ null_ls.setup({
     null_ls.builtins.code_actions.eslint_d.with({
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
     }),
-    --null_ls.builtins.formatting.clang_format,
+    null_ls.builtins.formatting.clang_format,
   },
 })
 

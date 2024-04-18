@@ -122,6 +122,7 @@ require("lazy").setup({
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
     config = function()
       require("core.plugin_configs.dap.dap-ui")
     end,
@@ -182,6 +183,15 @@ require("lazy").setup({
   --------------Text editor configuration-------------
 
   --------------misc-------------
+  {
+    'Civitasv/cmake-tools.nvim',
+    dependencides = {
+      "nvim-lua/plenary.nvim" 
+    },
+    config = function()
+      require("cmake-tools").setup {}
+    end
+  },
   {
     'tpope/vim-fugitive',
     cmd = { "G" },
