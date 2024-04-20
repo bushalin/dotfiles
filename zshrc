@@ -20,6 +20,8 @@ export PATH=$PATH:/Users/hasibulhasan/go/bin/
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# export CC="/opt/homebrew/bin"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -42,7 +44,8 @@ ZSH_THEME="agnoster"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -86,9 +89,9 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker-compose dotnet web-search zsh-autosuggestions)
+# plugins=(git docker-compose dotnet web-search zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -115,6 +118,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
+
+eval "$(starship init zsh)"
+
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -122,3 +131,5 @@ alias ....="cd ../../.."
 alias l="ls -la"
 alias d="kitty +kitten diff"
 alias gs="git status"
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
