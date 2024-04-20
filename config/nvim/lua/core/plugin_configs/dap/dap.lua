@@ -23,4 +23,4 @@ vim.keymap.set('n', '<Leader>ds', function()
   widgets.centered_float(widgets.scopes)
 end)
 
-require("core.plugin_configs.dap.dap-jsts")
+require("core.plugin_configs.dap.dap-configs")
