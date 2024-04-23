@@ -12,5 +12,6 @@ M.ui = {
 		["@comment"] = { italic = true },
 	},
 }
+M.mappings = require("configs.dap_mappings")
 
 return M
