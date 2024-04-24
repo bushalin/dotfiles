@@ -1,3 +1,18 @@
+# ZSH has been customized to look and feel good for my taste.
+# We need to install additional tools to use these functionalities
+#
+# fzf           fuzzy finding
+# bat           alternative of cat
+# delta         beautiful diff
+# eza           for tree view
+# tldr          alternative of MAN pages
+# thefuck       auto-correction of commands
+# zoxide        better way of navigation
+# starship      customizable prompt for any shell/ basically beautiful looking paths
+# oh-my-zsh     framwork for managing shell configuration
+#
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="/opt/homebrew/opt/openssl@3.1/bin:$PATH"
@@ -119,14 +134,12 @@ eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
 alias cd="z"
+
+eval "$(starship init zsh)"
 #
-# =================== hasib configuration ====================
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
-
-eval "$(starship init zsh)"
-
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -134,4 +147,7 @@ alias ....="cd ../../.."
 alias d="kitty +kitten diff"
 alias gs="git status"
 
+# for docker to compile using the linux/amd64 instead of apple silicone
+
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+# =================== hasib configuration ====================
