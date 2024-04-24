@@ -1,17 +1,4 @@
-# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# # Initialization code that may require console input (password prompts, [y/n]
-# # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# set ZSH_THEME="powerlevel10k/powerlevel10k"
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="/opt/homebrew/opt/openssl@3.1/bin:$PATH"
 export PATH=$PATH:/Users/hasibulhasan/go/bin/
@@ -120,6 +107,21 @@ ZSH_THEME="agnoster"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+# =================== hasib configuration ====================
+#
+export BAT_THEME=gruvbox-dark
+
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+eval $(thefuck --alias)
+
+eval "$(zoxide init zsh)"
+
+alias cd="z"
+#
+# =================== hasib configuration ====================
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
 
@@ -129,7 +131,6 @@ eval "$(starship init zsh)"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias l="ls -la"
 alias d="kitty +kitten diff"
 alias gs="git status"
 
