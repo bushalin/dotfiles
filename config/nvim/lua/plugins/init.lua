@@ -37,13 +37,6 @@ return {
   },
 
   {
-    'ThePrimeagen/harpoon',
-    config = function()
-      require("configs.harpoon")
-    end
-  },
-
-  {
     'mbbill/undotree',
     keys = { "<leader>u" },
     config = function()
