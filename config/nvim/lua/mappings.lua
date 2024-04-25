@@ -4,39 +4,41 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+-- map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
-map("n", "<leader>w", ":w!<cr>", { silent = true }, "Save a file")
+-- map("n", "<leader>w", ":w!<cr>", { silent = true, desc = "Save a file" })
 map("n", "<leader><cr>", ":noh<cr>", { silent = true })
-map("n", "<leader>si", ":source %<cr>", { silent = false }, "Source file")
+map("n", "<leader>si", ":source %<cr>", { silent = false, desc = "Source file" })
 
 
-map("n", "dh", ":diffget //2<cr>", { silent = true })
-map("n", "dl", ":diffget //3<cr>", { silent = true })
+map("n", "dh", ":diffget //2<cr>", { silent = true, desc = "diffget left" })
+map("n", "dl", ":diffget //3<cr>", { silent = true, desc = "diffget right" })
 
 
 -- copy to the clipboard
 -- vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- maximize the window
-map("n", "<C-w>m", "<C-w>|<C-w>_", "Maximize window")
+map("n", "<C-w>m", "<C-w>|<C-w>_", { desc = "Maximize buffer" })
 
 -- map("n", "<leader>vs", ":vs<cr><C-W>l")
 -- map("n", "<leader>sp", ":sp<cr><C-W>j")
 
-map("n", "<leader>cd", ":cd %:p:h<cr>:pwd<cr>", "Change current root directory")
+map("n", "<leader>cd", ":cd %:p:h<cr>:pwd<cr>", { desc = "Change root directory to current" })
 
 -- autocmd for common filetypes
 vim.cmd([[autocmd FileType go setlocal shiftwidth=4 softtabstop=4 expandtab]])
-vim.cmd([[autocmd FileType c, cpp, lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]])
+vim.cmd(
+  [[autocmd FileType c, cpp, lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]])
 
 -- remaps from the primeage
 -- move selected files in visual mode
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up"})
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down"})
 
 -- keeps the cursor in the middle when scrolling and searching
 map("n", "<C-d>", "<C-d>zz")
@@ -45,4 +47,37 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- keeping the paste in the buffer
-map("x", "<leader>p", "\"_dP")
+map("x", "<leader>p", "\"_dP", { desc = "Paste and keep" })
+
+-- git related remaps
+local gitsigns = require('gitsigns')
+
+map('n', ']c', function()
+  if vim.wo.diff then
+    vim.cmd.normal({ ']c', bang = true })
+  else
+    gitsigns.nav_hunk('next')
+  end
+end, { desc = "Git next hunk" })
+map('n', '[c', function()
+  if vim.wo.diff then
+    vim.cmd.normal({ '[c', bang = true })
+  else
+    gitsigns.nav_hunk('prev')
+  end
+end, { desc = "Git previous hunk" })
+
+-- Actions
+map('n', '<leader>ggs', gitsigns.stage_hunk, { desc = "Git stage hunk" })
+map('n', '<leader>ggr', gitsigns.reset_hunk, { desc = "Git reset hunk" })
+map('v', '<leader>ggs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+map('v', '<leader>ggr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+map('n', '<leader>ggS', gitsigns.stage_buffer, { desc = "Git Stage buffer" })
+map('n', '<leader>ggu', gitsigns.undo_stage_hunk, { desc = "Git undo-stage hunk" })
+map('n', '<leader>ggR', gitsigns.reset_buffer, { desc = "Git Reset buffer" })
+map('n', '<leader>ggp', gitsigns.preview_hunk, { desc = "Git preview hunk" })
+-- map('n', '<leader>gb', function() gitsigns.blame_line { full = true } end)
+map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = "Git toggle current line blame" })
+map('n', '<leader>ggd', gitsigns.diffthis, { desc = "Git diff this" })
+map('n', '<leader>ggD', function() gitsigns.diffthis('~') end, { desc = "Git diff this Selection" })
+map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = "Git toggle deleted" })
