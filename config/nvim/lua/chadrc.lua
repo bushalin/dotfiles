@@ -45,6 +45,6 @@ M.ui = {
 
 }
 
-M.mappings = require("configs.dap_mappings")
+-- M.mappings = require("configs.dap_mappings")
 
 return M
