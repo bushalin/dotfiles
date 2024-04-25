@@ -150,4 +150,6 @@ alias gs="git status"
 # for docker to compile using the linux/amd64 instead of apple silicone
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # =================== hasib configuration ====================
