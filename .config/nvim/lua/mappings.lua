@@ -35,6 +35,15 @@ vim.cmd([[autocmd FileType go setlocal shiftwidth=4 softtabstop=4 expandtab]])
 vim.cmd(
   [[autocmd FileType c, cpp, lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]])
 
+-- Highlight when yanking (copying) text
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("bushalin-hightlight", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 -- remaps from the primeage
 -- move selected files in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up"})
