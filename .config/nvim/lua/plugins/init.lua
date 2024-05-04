@@ -40,12 +40,13 @@ return {
     'mbbill/undotree',
     keys = { "<leader>u" },
     config = function()
-      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree"})
+      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
     end
   },
 
   {
     "tpope/vim-fugitive",
+    cmd = { "G" }
   },
 
   {
@@ -103,5 +104,16 @@ return {
       { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
+  },
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    cmd = { "Oil" },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("configs.oil")
+    end
   }
 }
