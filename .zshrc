@@ -16,7 +16,7 @@ case `uname` in
     export BREW_HOME="/home/linuxbrew/.linuxbrew/bin"
     export PATH="$PATH:$BREW_HOME"
   ;;
-  Darwin) 
+  "Darwin") 
     export PATH="/opt/homebrew/opt/openssl@3.1/bin:$PATH"
     export PATH=$PATH:/Users/hasibulhasan/go/bin/
     # If you come from bash you might have to change your $PATH.
@@ -53,4 +53,10 @@ alias link="ln -sf"
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+# Mac related
+if [[ "$OS_VERSION" = "Darwin" ]]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 # =================== hasib configuration ====================

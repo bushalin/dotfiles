@@ -76,6 +76,8 @@ map('n', '[c', function()
   end
 end, { desc = "Git previous hunk" })
 
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- Actions
 map('n', '<leader>ggs', gitsigns.stage_hunk, { desc = "Git stage hunk" })
 map('n', '<leader>ggr', gitsigns.reset_hunk, { desc = "Git reset hunk" })

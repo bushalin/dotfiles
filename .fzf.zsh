@@ -10,7 +10,8 @@ case "$OS_VERSION" in
   ;;
   Darwin) 
     if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-      export PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+      # export PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+      export PATH="${PATH:+${PATH}:}/opt/homebrew/bin/fzf"
     fi
   ;;
   *)
