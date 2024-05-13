@@ -92,3 +92,10 @@ map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = "Git toggle
 map('n', '<leader>ggd', gitsigns.diffthis, { desc = "Git diff this" })
 map('n', '<leader>ggD', function() gitsigns.diffthis('~') end, { desc = "Git diff this Selection" })
 map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = "Git toggle deleted" })
+
+map('n', '<leader>tx', function() require("trouble").toggle() end, { desc = "Trouble Toggle"})
+map("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Trouble workspace_diagnostics"})
+map("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end, { desc = "Trouble document_diagnostics"})
+map("n", "<leader>tq", function() require("trouble").toggle("quickfix") end, { desc = "Trouble quickfix"})
+map("n", "<leader>tl", function() require("trouble").toggle("loclist") end, { desc = "Trouble loclist"})
+map("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Trouble lsp_references"})
