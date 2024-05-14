@@ -93,7 +93,7 @@ map('n', '<leader>ggd', gitsigns.diffthis, { desc = "Git diff this" })
 map('n', '<leader>ggD', function() gitsigns.diffthis('~') end, { desc = "Git diff this Selection" })
 map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = "Git toggle deleted" })
 
-map('n', '<leader>tx', function() require("trouble").toggle() end, { desc = "Trouble Toggle"})
+map('n', '<leader>tt', function() require("trouble").toggle() end, { desc = "Trouble Toggle"})
 map("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Trouble workspace_diagnostics"})
 map("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end, { desc = "Trouble document_diagnostics"})
 map("n", "<leader>tq", function() require("trouble").toggle("quickfix") end, { desc = "Trouble quickfix"})
