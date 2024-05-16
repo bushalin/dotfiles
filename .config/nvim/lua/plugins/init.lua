@@ -117,12 +117,12 @@ return {
     end
   },
 
-  { 
-    "danymat/neogen", 
+  {
+    "danymat/neogen",
     config = true,
     cmd = { "Neogen" }
     -- Uncomment next line if you want to follow only stable versions
-    -- version = "*" 
+    -- version = "*"
   },
 
   {
@@ -136,4 +136,31 @@ return {
     }
   },
 
+  -- database plugins
+  {
+    "tpope/vim-dadbod",
+    cmd = { "DB" },
+  },
+
+  {
+    "kristijanhusak/vim-dadbod-completion"
+  },
+
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod',                     lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  }
 }
