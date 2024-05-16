@@ -6,9 +6,30 @@ local plugins = {
   },
 
   {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+    end,
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server", "stylua",
+        "html-lsp", "css-lsp", "prettier", "clangd", "codelldb",
+      },
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "cpp" },
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
+        "html", "css", "cpp"
+      },
     },
   },
 
