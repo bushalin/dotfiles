@@ -13,7 +13,7 @@ local plugins = {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter",
+    "hrsh7th/nvim-cmp",
     opts = {
       sources = {
         -- { name = "copilot" },
