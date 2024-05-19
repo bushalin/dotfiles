@@ -66,6 +66,15 @@ if [[ "$OS_VERSION" = "Darwin" ]]; then
   source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 fi
 
+# Linux related
+if [[ "$OS_VERSION" = "Linux" ]]; then
+  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ~/powerlevel10k/powerlevel10k.zsh-theme
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
 # =================== hasib configuration ====================
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
