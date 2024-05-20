@@ -37,4 +37,8 @@ return {
       handlers = {}
     }
   },
+
+  {
+    "nvim-telescope/telescope-dap.nvim"
+  }
 }
