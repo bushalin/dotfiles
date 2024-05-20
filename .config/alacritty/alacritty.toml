@@ -1,3 +1,9 @@
+import = [
+  "~/.config/alacritty/dark.toml"
+]
+
+live_config_reload = true
+
 [env]
 TERM = "xterm-256color"
 
@@ -7,6 +13,7 @@ decorations = "Buttonless"
 opacity = 0.75
 blur = true
 option_as_alt = "Both"
+dynamic_title = true
 
 [font]
 size = 14
@@ -15,13 +22,19 @@ bold = { family = "Hack Nerd Font Mono", style = "Bold"}
 italic = { family = "Hack Nerd Font Mono", style = "Italic"}
 bold_italic = { family = "Hack Nerd Font Mono", style = "Bold Italic"}
 
-[colors]
-primary = { background = '0x282828', foreground = '0xdfbf8e' }
-normal = { black = '0x665c54', red = '0xea6962', green = '0xa9b665', yellow = '0xe78a4e', blue = '0x7daea3', magenta = '0xd3869b', cyan = '0x89b482', white = '0xdfbf8e' }
-bright = { black = '0x928374', red= '0xea6962', green= '0xa9b665', yellow= '0xe3a84e', blue= '0x7daea3', magenta= '0xd3869b', cyan= '0x89b482', white= '0xdfbf8e' }
-
 [cursor]
 style = { shape = "Block", blinking = "Never" }
 
 [mouse]
 hide_when_typing = true
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "Return"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+key = "/"
+action = "SearchForward"
+mode = "Vi|~Search"
+mods = "Shift"
