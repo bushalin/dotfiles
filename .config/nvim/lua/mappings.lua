@@ -18,7 +18,7 @@ map("n", "<leader>si", ":source %<cr>", { silent = false, desc = "Source file" }
 map("n", "dh", ":diffget //2<cr>", { silent = true, desc = "diffget left" })
 map("n", "dl", ":diffget //3<cr>", { silent = true, desc = "diffget right" })
 
-map("i", "jk", "<ESC>", { silent = true, desc = "Go to normal mode"})
+map("i", "jk", "<ESC>", { silent = true, desc = "Go to normal mode" })
 
 -- copy to the clipboard
 -- vim.api.nvim_set_option("clipboard", "unnamed")
@@ -37,7 +37,8 @@ vim.cmd(
   [[autocmd FileType c, cpp, lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]])
 
 -- autocmd for db (vim-dadbod)
-vim.cmd([[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]])
+vim.cmd(
+  [[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]])
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -50,8 +51,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- remaps from the primeage
 -- move selected files in visual mode
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up"})
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down"})
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down" })
 
 -- keeps the cursor in the middle when scrolling and searching
 map("n", "<C-d>", "<C-d>zz")
@@ -97,9 +98,11 @@ map('n', '<leader>ggd', gitsigns.diffthis, { desc = "Git diff this" })
 map('n', '<leader>ggD', function() gitsigns.diffthis('~') end, { desc = "Git diff this Selection" })
 map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = "Git toggle deleted" })
 
-map('n', '<leader>tt', function() require("trouble").toggle() end, { desc = "Trouble Toggle"})
-map("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Trouble workspace_diagnostics"})
-map("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end, { desc = "Trouble document_diagnostics"})
-map("n", "<leader>tq", function() require("trouble").toggle("quickfix") end, { desc = "Trouble quickfix"})
-map("n", "<leader>tl", function() require("trouble").toggle("loclist") end, { desc = "Trouble loclist"})
-map("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Trouble lsp_references"})
+map('n', '<leader>tt', function() require("trouble").toggle() end, { desc = "Trouble Toggle" })
+map("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end,
+  { desc = "Trouble workspace_diagnostics" })
+map("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end,
+  { desc = "Trouble document_diagnostics" })
+map("n", "<leader>tq", function() require("trouble").toggle("quickfix") end, { desc = "Trouble quickfix" })
+map("n", "<leader>tl", function() require("trouble").toggle("loclist") end, { desc = "Trouble loclist" })
+map("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Trouble lsp_references" })
