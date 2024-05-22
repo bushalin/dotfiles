@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 local trouble = require("trouble")
 
-map('n', '<leader>tt', function() trouble.toggle() end, { desc = "Trouble Toggle" })
+map("n", "<leader>tt", function() trouble.toggle() end, { desc = "Trouble Toggle" })
 map("n", "<leader>tw", function() trouble.toggle("workspace_diagnostics") end,
   { desc = "Trouble workspace_diagnostics" })
 map("n", "<leader>td", function() trouble.toggle("document_diagnostics") end,

@@ -46,8 +46,8 @@ map("n", "N", "Nzzzv")
 -- keeping the paste in the buffer
 map("x", "<leader>p", "\"_dP", { desc = "Paste and keep" })
 
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
-require("mappings.plugins.trouble")
-require("mappings.plugins.gitsigns")
+-- adding custom plugin specific mappings
+require "custom_mappings.trouble"
+require "custom_mappings.gitsigns"
