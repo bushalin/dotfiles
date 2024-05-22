@@ -49,5 +49,5 @@ map("x", "<leader>p", "\"_dP", { desc = "Paste and keep" })
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-require("mappings.gitsigns")
-require("mappings.trouble")
+require("mappings.plugins.trouble")
+require("mappings.plugins.gitsigns")
