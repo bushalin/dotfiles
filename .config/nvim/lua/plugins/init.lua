@@ -63,9 +63,10 @@ return {
       -- refer to the configuration section below
     }
   },
+
   {
     "mfussenegger/nvim-lint",
-    config  = function()
+    config = function()
       require("configs.nvim-lint")
 
       local lint = require("lint")
