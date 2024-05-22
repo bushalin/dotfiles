@@ -46,46 +46,8 @@ map("n", "N", "Nzzzv")
 -- keeping the paste in the buffer
 map("x", "<leader>p", "\"_dP", { desc = "Paste and keep" })
 
--- git related remaps
-local gitsigns = require('gitsigns')
-
-map('n', ']c', function()
-  if vim.wo.diff then
-    vim.cmd.normal({ ']c', bang = true })
-  else
-    gitsigns.nav_hunk('next')
-  end
-end, { desc = "Git next hunk" })
-map('n', '[c', function()
-  if vim.wo.diff then
-    vim.cmd.normal({ '[c', bang = true })
-  else
-    gitsigns.nav_hunk('prev')
-  end
-end, { desc = "Git previous hunk" })
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- Actions
-map('n', '<leader>ggs', gitsigns.stage_hunk, { desc = "Git stage hunk" })
-map('n', '<leader>ggr', gitsigns.reset_hunk, { desc = "Git reset hunk" })
-map('v', '<leader>ggs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-map('v', '<leader>ggr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-map('n', '<leader>ggS', gitsigns.stage_buffer, { desc = "Git Stage buffer" })
-map('n', '<leader>ggu', gitsigns.undo_stage_hunk, { desc = "Git undo-stage hunk" })
-map('n', '<leader>ggR', gitsigns.reset_buffer, { desc = "Git Reset buffer" })
-map('n', '<leader>ggp', gitsigns.preview_hunk, { desc = "Git preview hunk" })
--- map('n', '<leader>gb', function() gitsigns.blame_line { full = true } end)
-map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = "Git toggle current line blame" })
-map('n', '<leader>ggd', gitsigns.diffthis, { desc = "Git diff this" })
-map('n', '<leader>ggD', function() gitsigns.diffthis('~') end, { desc = "Git diff this Selection" })
-map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = "Git toggle deleted" })
-
-map('n', '<leader>tt', function() require("trouble").toggle() end, { desc = "Trouble Toggle" })
-map("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end,
-  { desc = "Trouble workspace_diagnostics" })
-map("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end,
-  { desc = "Trouble document_diagnostics" })
-map("n", "<leader>tq", function() require("trouble").toggle("quickfix") end, { desc = "Trouble quickfix" })
-map("n", "<leader>tl", function() require("trouble").toggle("loclist") end, { desc = "Trouble loclist" })
-map("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Trouble lsp_references" })
+require("mappings.gitsigns")
+require("mappings.trouble")
