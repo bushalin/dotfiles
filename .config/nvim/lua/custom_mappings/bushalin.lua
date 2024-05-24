@@ -34,5 +34,25 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- remaps for copy to the system clipboard
+map({ 'n', 'v' }, '<leader>y', '"+y')
+map('n', '<leader>Y', '"+yg')
+map('n', '<leader>yy', '"+yy')
+-- Some cool info about the registers:
+-- default register is " register
+-- yank register is 0 register
+-- when you yank/delete something
+-- it will go to the default " register
+-- but the 0 register will hold the latest yank
+-- so you can do:
+-- yank something => will go to the 0 register
+-- delete something => will go to " register
+-- then you can paste from 0 register
+-- ex:
+--
+-- yank some text -> yy
+-- delete the text you want to replace -> dd
+-- paste using the 0 register -> "0p
+
 -- keeping the paste in the buffer
 map("x", "<leader>p", "\"_dP", { desc = "Paste and keep" })
