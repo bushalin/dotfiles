@@ -4,8 +4,16 @@ require "nvchad.options"
 
 local o = vim.o
 local opt = vim.opt
-o.cursorlineopt ='both' -- to enable cursorline!
 
 opt.guicursor = ""
 
+o.cursorline = true
+o.cursorlineopt = 'line' -- to enable cursorline!
 
+o.number = true
+o.relativenumber = true
+
+opt.inccommand = "nosplit"
+opt.incsearch = true
+
+opt.scrolloff = 8
