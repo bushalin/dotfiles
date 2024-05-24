@@ -9,6 +9,7 @@ return {
   {
     "tris203/precognition.nvim",
     lazy = false,
+    enabled = false,
     config = {
       startVisible = true,
       showBlankVirtLine = true,
