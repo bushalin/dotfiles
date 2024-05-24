@@ -53,6 +53,9 @@ map('n', '<leader>yy', '"+yy')
 -- yank some text -> yy
 -- delete the text you want to replace -> dd
 -- paste using the 0 register -> "0p
+--
+-- You can do <C-r>(register_name) to paste
+-- into the command
 
 -- keeping the paste in the buffer
 map("x", "<leader>p", "\"_dP", { desc = "Paste and keep" })
