@@ -40,3 +40,11 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # =================== hasib configuration ====================
+#
+# 
+# tmux configuration for tmuxifier
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
+export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
+
+export EDITOR=nvim
