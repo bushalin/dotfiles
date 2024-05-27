@@ -85,3 +85,6 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export EDITOR=nvim
+
+alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
+alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
