@@ -69,9 +69,9 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
 -- remaps for copy to the system clipboard
-map({ 'n', 'v' }, '<leader>y', '"+y')
-map('n', '<leader>Y', '"+yg')
-map('n', '<leader>yy', '"+yy')
+map({ 'n', 'v' }, '<leader>y', '"+y', { desc = '[Y]ank to system clipboard' })
+map('n', '<leader>Y', '"+yg', { desc = '[Y]ank to system clipboard' })
+map('n', '<leader>yy', '"+yy', { desc = '[Y]ank to system clipboard' })
 -- Some cool info about the registers:
 -- default register is " register
 -- yank register is 0 register
