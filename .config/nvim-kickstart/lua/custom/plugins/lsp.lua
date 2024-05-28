@@ -186,6 +186,17 @@ return {
         },
       }
 
+      -- uncomment this if you have any other lsp servers that you do not install with mason
+      -- specially useful when you have a device that does not support mason installation.
+      -- ex. = aarch64 devices does not support mason installed LSPs
+      local custom_servers = { 'clangd' }
+
+      for _, lsp in ipairs(custom_servers) do
+        require('lspconfig')[lsp].setup {
+          capabilities = capabilities,
+        }
+      end
+
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
