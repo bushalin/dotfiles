@@ -86,5 +86,5 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
 
 export EDITOR=nvim
 
-alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
-alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
+# alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
+# alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
