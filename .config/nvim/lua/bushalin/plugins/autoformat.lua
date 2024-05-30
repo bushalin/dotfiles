@@ -4,12 +4,12 @@ return {
     lazy = true,
     keys = {
       {
-        '<leader>f',
+        '<leader>cf',
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[C]ode [F]ormat',
       },
     },
     opts = {
@@ -25,7 +25,7 @@ return {
         }
       end,
       formatters_by_ft = {
-        lua = { 'lua-ls', 'stylua' },
+        lua = { 'stylua' },
         css = { 'prettier' },
         html = { 'prettier' },
         typescript = { 'prettier' },
