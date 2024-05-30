@@ -5,10 +5,12 @@
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
+-- :h dap-configuration
 
 return {
   'mfussenegger/nvim-dap',
-  lazy = 'VeryLazy',
+  lazy = true,
+  cmd = { 'DapContinue' },
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -41,6 +43,8 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'cpptools',
+        'codelldb',
       },
     }
 
@@ -91,5 +95,62 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
+    -- NOTE: C++ adapters
+    -- GDB native
+    dap.adapters.gdb = {
+      type = 'executable',
+      command = 'gdb',
+      args = { '-i', 'dap' },
+    }
+    -- dap.adapters.lldb = {
+    --   type = 'executable',
+    --   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+    --   name = 'lldb',
+    -- }
+
+    -- NOTE: C++ Configuration
+
+    -- gdb
+    dap.configurations.cpp = {
+      {
+        name = 'Launch GDB',
+        type = 'gdb',
+        request = 'launch',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtBeginningOfMainSubprogram = false,
+      },
+    }
+
+    -- lldb
+    -- dap.configurations.cpp = {
+    --   {
+    --     name = 'Launch LLDB',
+    --     type = 'lldb',
+    --     request = 'launch',
+    --     program = function()
+    --       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    --     end,
+    --     cwd = '${workspaceFolder}',
+    --     stopOnEntry = false,
+    --     args = {},
+    --
+    --     -- 💀
+    --     -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+    --     --
+    --     --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    --     --
+    --     -- Otherwise you might get the following error:
+    --     --
+    --     --    Error on launch: Failed to attach to the target process
+    --     --
+    --     -- But you should be aware of the implications:
+    --     -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+    --     -- runInTerminal = false,
+    --   },
+    -- }
   end,
 }
