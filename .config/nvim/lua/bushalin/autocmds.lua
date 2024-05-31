@@ -1,6 +1,6 @@
 -- autocmd for common filetypes
 vim.cmd [[autocmd FileType go setlocal shiftwidth=4 softtabstop=4 expandtab]]
-vim.cmd [[autocmd FileType c, cpp setlocal shiftwidth=4 softtabstop=4 expandtab]]
+vim.cmd [[autocmd FileType c, cpp setlocal shiftwidth=2 softtabstop=2 expandtab]]
 vim.cmd [[autocmd FileType lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]]
 
 -- autocmd for db (vim-dadbod)
