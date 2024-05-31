@@ -85,6 +85,7 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time
 alias cd="z"
 alias d="kitty +kitten diff"
 alias link="ln -sf"
+alias s="sesh"
 
 # alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
 # alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
