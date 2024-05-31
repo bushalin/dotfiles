@@ -1,0 +1,7 @@
+[default_session]
+startup_command = "nvim"
+
+[[session]]
+name = " dotfiles"
+path = "~/dotfiles/"
+startup_command = "tmuxifier load-window neovim_config"
