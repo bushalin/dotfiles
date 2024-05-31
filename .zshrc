@@ -38,8 +38,6 @@ esac
 #
 export BAT_THEME=gruvbox-dark
 
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-
 eval $(thefuck --alias)
 
 eval "$(zoxide init zsh)"
@@ -49,10 +47,6 @@ eval "$(zoxide init zsh)"
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
-
-alias cd="z"
-alias d="kitty +kitten diff"
-alias link="ln -sf"
 
 # for docker to compile using the linux/amd64 instead of apple silicone
 
@@ -86,5 +80,12 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
 
 export EDITOR=nvim
 
+# define all the aliases
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias cd="z"
+alias d="kitty +kitten diff"
+alias link="ln -sf"
+
 # alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
 # alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
+
