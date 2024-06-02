@@ -20,6 +20,9 @@ return {
         options = {
           icons_enabled = true,
           theme = 'auto',
+          -- NOTE:
+          -- Separators    
+          -- For straight line just give an empty string
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
           disabled_filetypes = {
@@ -40,7 +43,7 @@ return {
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = { 'filename' },
           lualine_x = { lsp_clients, 'fileformat', 'filetype' },
-          lualine_y = { 'progress' },
+          lualine_y = { 'hostname' },
           lualine_z = { 'location' },
         },
         inactive_sections = {
@@ -54,7 +57,7 @@ return {
         tabline = {},
         winbar = {},
         inactive_winbar = {},
-        extensions = {},
+        extensions = { 'oil', 'trouble' },
       }
     end,
   },
