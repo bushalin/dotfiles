@@ -1,7 +1,7 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
     config = function()
       local lsp_clients = function()
         local clients = vim.lsp.get_active_clients()

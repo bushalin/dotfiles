@@ -1,6 +1,13 @@
 return {
   { -- You can easily change to a different colorscheme.
     'folke/tokyonight.nvim',
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = { '[F]ind [T]heme by lazy loading' }
+      },
+    },
     opts = {
       style = 'storm', -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
       transparent = false, -- Enable this to disable setting the background color
@@ -29,6 +36,14 @@ return {
   {
     {
       'catppuccin/nvim',
+      lazy = true,
+      keys = {
+        {
+          '<leader>ft',
+          '<CMD>Telescope colorscheme<CR>',
+          desc = { '[F]ind [T]heme by lazy loading' }
+        },
+      },
       name = 'catppuccin',
       opts = {
         flavour = 'macchiato', -- latte, frappe, macchiato, mocha
@@ -79,7 +94,9 @@ return {
 
   {
     'ellisonleao/gruvbox.nvim',
+    lazy = false,
     config = true,
+    priority = 1000,
     opts = {
       terminal_colors = true, -- add neovim terminal colors
       undercurl = true,
@@ -104,9 +121,20 @@ return {
       dim_inactive = false,
       transparent_mode = false,
     },
+    init = function()
+      vim.cmd.colorscheme 'gruvbox'
+    end,
   },
 
   {
     'savq/melange-nvim',
+    name = 'melange',
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = { '[F]ind [T]heme by lazy loading' }
+      },
+    },
   },
 }

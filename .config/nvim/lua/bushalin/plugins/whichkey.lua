@@ -10,7 +10,7 @@ return {
         ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore', l = { '[L]ive [G]rep' }, g = { '[G]it' } },
+        ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore', l = { '[L]ive [G]rep' }, g = { '[G]it' }, t = { '[T]hemes'} },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]rouble', _ = 'which_key_ignore' },
         -- NOTE:

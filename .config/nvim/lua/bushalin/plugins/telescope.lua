@@ -21,7 +21,7 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font, lazy = true },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -56,8 +56,8 @@ return {
         -- },
         pickers = {
           colorscheme = {
-            enable_preview = true
-          }
+            enable_preview = true,
+          },
         },
         extensions = {
           ['ui-select'] = {
@@ -84,7 +84,7 @@ return {
       vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = '[F]ind [M]arks' })
       vim.keymap.set('n', '<leader>fgc', builtin.git_commits, { desc = '[F]ind [G]it [C]ommits' })
       vim.keymap.set('n', '<leader>fgs', builtin.git_status, { desc = '[F]ind [G]it [S]tatus' })
-      vim.keymap.set('n', '<leader>ft', builtin.colorscheme, { desc = '[F]ind [T]hemes' })
+      -- vim.keymap.set('n', '<leader>ft', builtin.colorscheme, { desc = '[F]ind [T]hemes' })
       vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 

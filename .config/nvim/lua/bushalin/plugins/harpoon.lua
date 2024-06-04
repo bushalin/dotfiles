@@ -4,6 +4,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile', 'BufEnter' },
     dependencies = {
       'nvim-lua/plenary.nvim',
+      lazy = true,
     },
     keys = {},
     config = function()

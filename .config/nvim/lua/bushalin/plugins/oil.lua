@@ -178,6 +178,6 @@ return {
     },
     cmd = { 'Oil' },
     -- Optional dependencies
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
   },
 }

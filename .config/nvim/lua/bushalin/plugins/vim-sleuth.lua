@@ -1,3 +1,3 @@
 return {
-  { 'tpope/vim-sleuth' },
+  { 'tpope/vim-sleuth', lazy = true, event = 'BufEnter'},
 }
