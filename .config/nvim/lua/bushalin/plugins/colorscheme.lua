@@ -1,4 +1,3 @@
-local util = require 'telescope.pickers.c'
 return {
   { -- You can easily change to a different colorscheme.
     'folke/tokyonight.nvim',
