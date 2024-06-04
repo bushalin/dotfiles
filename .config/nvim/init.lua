@@ -18,15 +18,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-local lazy_settings = {
-  defaults = {
-    lazy = true,
-    install = {
-      colorscheme = { 'gruvbox' },
-    },
-  },
-}
-
 -- NOTE: Here is where you install your plugins.
 local lazyconfig = require 'bushalin.lazy_config'
 
