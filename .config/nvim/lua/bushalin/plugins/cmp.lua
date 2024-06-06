@@ -64,6 +64,7 @@ return {
         --
         -- default: 'default'
         preset = 'codicons',
+        preset = 'default',
 
         -- override preset symbols
         --
@@ -165,7 +166,6 @@ return {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'codeium' },
           { name = 'path' },
           { name = 'buffer' },
         },
