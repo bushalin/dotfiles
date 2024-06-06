@@ -13,7 +13,7 @@ return {
         for _, client in pairs(clients) do
           table.insert(c, client.name)
         end
-        return '\u{edd6} ' .. table.concat(c, '|')
+        return '󰫹󰬀󰫽 ' .. table.concat(c, '|')
       end
 
       require('lualine').setup {
