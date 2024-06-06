@@ -16,9 +16,9 @@ return {
           width = vim.api.nvim_win_get_width(0) - 50,
         },
       }
-      vim.keymap.set('n', '<leader>he', function()
+      vim.keymap.set('n', '<leader>hl', function()
         harpoon_ui.toggle_quick_menu()
-      end, { desc = '[H]arpoon [E]xplore' })
+      end, { desc = '[H]arpoon [L]ist marks' })
 
       vim.keymap.set('n', '<leader>hn', function()
         harpoon_ui.nav_next()
