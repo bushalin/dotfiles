@@ -53,8 +53,8 @@ return {
           -- NOTE:
           -- Separators    
           -- For straight line just give an empty string
-          component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' },
+          component_separators = topSeparators,
+          section_separators = topSeparators,
           disabled_filetypes = {
             statusline = {},
             winbar = {},
