@@ -20,10 +20,12 @@ return {
         ['<leader>u'] = { name = '[U]ndo Tree', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]ource', _ = 'which_key_ignore' },
       }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>g'] = { '[G]it' },
-      }, { mode = 'v' })
+      -- WARN:
+      -- visual mode throws error in the updated version
+      --
+      -- require('which-key').register({
+      --   ['<leader>g'] = { '[G]it' },
+      -- }, { mode = 'v' })
     end,
   },
 }
