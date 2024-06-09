@@ -73,6 +73,7 @@ fi
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS:$PATH"
 
 # =================== hasib configuration ====================
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
