@@ -5,12 +5,12 @@ function font.apply(config)
   config.font_size = 15
   config.font = wezterm.font_with_fallback {
     {
-      -- family = "Monaspace Neon",
+      family = "Monaspace Neon",
       -- family = "Monaspace Argon",
-      family = 'Monaspace Xenon',
+      -- family = 'Monaspace Xenon',
       -- family = "Monaspace Radon",
       -- family = "Monaspace Krypton",
-      weight = 'Regular',
+      weight = 'Light',
       harfbuzz_features = {
         'calt',
         'liga',
@@ -27,7 +27,7 @@ function font.apply(config)
     },
     {
       family = 'Hack Nerd Font Mono',
-      weight = 'Bold',
+      weight = 'Light',
     },
   }
   config.font_rules = {
