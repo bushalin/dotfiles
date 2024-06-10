@@ -1,6 +1,7 @@
 local config = {}
 
 -- user configs
+-- add your config here
 local user_configs = {
   font = require 'configs.font',
   background = require 'configs.background',
