@@ -9,17 +9,17 @@ function background.apply(config)
   config.window_background_image = '/Users/hasibulhasan/.config/wezterm/assets/katana_wallpaper.jpeg'
   config.window_background_image = '/Users/hasibulhasan/.config/wezterm/assets/cyberpunk-edgerunners-lucy-game-4k.jpeg'
 
-  -- config.window_background_image_hsb = {
-  --   -- Darken the background image by reducing it to 1/3rd
-  --   brightness = 0.08,
-  --
-  --   -- You can adjust the hue by scaling its value.
-  --   -- a multiplier of 1.0 leaves the value unchanged.
-  --   hue = 1.0,
-  --
-  --   -- You can adjust the saturation also.
-  --   saturation = 1.0,
-  -- }
+  config.window_background_image_hsb = {
+    -- Darken the background image by reducing it to 1/3rd
+    brightness = 0.08,
+
+    -- You can adjust the hue by scaling its value.
+    -- a multiplier of 1.0 leaves the value unchanged.
+    hue = 1.0,
+
+    -- You can adjust the saturation also.
+    saturation = 1.0,
+  }
 end
 
 return background
