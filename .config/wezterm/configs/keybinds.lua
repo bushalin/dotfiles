@@ -1,40 +1,27 @@
--- local wezterm = require 'wezterm'
--- local keybinds = {}
---
--- wezterm.on('toggle-opacity', function(window, pane)
---
---   -- local overrides = window:get_config_overrides() or {}
---   -- overrides.window_background_image_hsb.brightness = 0.00
---   -- window:set_config_overrides(overrides)
---   -- local overrides = window:get_config_overrides() or {}
---   -- if overrides.window_background_image_hsb then
---   --   overrides.window_background_image_hsb.brightness = 0.00
---   -- else
---   --   overrides.window_background_image_hsb.brightness = 0.08
---   -- end
---   -- window:set_config_overrides(overrides)
--- end)
---
--- local function toggle_background_color()
---   -- Check current background color
---   local current_bg = wezterm.current_config().window_background_image_hsb.brightness
---
---   local new_bg = current_bg == '0.08' and '0.00' or '0.08'
---
---   -- Update background color
---   wezterm.update_config { current_bg = new_bg }
--- end
---
--- function keybinds.apply(config)
---   -- config.leader = { key = 'w', mods = 'CTRL|SHIFT', timeout_milliseconds = 1000 }
---   config.keys = {
---     {
---       key = 'B',
---       mods = 'CTRL|SHIFT',
---       -- action = wezterm.action.EmitEvent 'toggle-opacity',
---       action = toggle_background_color,
---     },
---   }
--- end
---
--- return keybinds
+local wezterm = require 'wezterm'
+local io = require 'io'
+local os = require 'os'
+local act = wezterm.action
+local keybinds = {}
+
+wezterm.on('toggle-opacity', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if overrides.text_background_opacity == 0.85 then
+    overrides.text_background_opacity = 1.00
+  else
+    overrides.text_background_opacity = 0.85
+  end
+  window:set_config_overrides(overrides)
+end)
+function keybinds.apply(config)
+  -- config.leader = { key = 'w', mods = 'CTRL|SHIFT', timeout_milliseconds = 1000 }
+  config.keys = {
+    {
+      key = 'B',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.EmitEvent 'toggle-opacity',
+    },
+  }
+end
+
+return keybinds
