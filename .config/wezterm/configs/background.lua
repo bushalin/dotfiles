@@ -1,3 +1,4 @@
+local wezterm = require('wezterm')
 local background = {}
 
 function background.apply(config)
@@ -6,8 +7,8 @@ function background.apply(config)
 
   -- path to the file must be a full path instead of relative path
   --
-  config.window_background_image = '/Users/hasibulhasan/.config/wezterm/assets/katana_wallpaper.jpeg'
-  config.window_background_image = '/Users/hasibulhasan/.config/wezterm/assets/cyberpunk-edgerunners-lucy-game-4k.jpeg'
+  config.window_background_image = wezterm.config_dir .. '/assets/katana_wallpaper.jpeg'
+  config.window_background_image = wezterm.config_dir .. '/assets/cyberpunk-edgerunners-lucy-game-4k.jpeg'
 
   config.window_background_image_hsb = {
     -- Darken the background image by reducing it to 1/3rd
