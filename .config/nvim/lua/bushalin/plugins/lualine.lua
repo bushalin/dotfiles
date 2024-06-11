@@ -54,8 +54,8 @@ return {
           -- NOTE:
           -- Separators    
           -- For straight line just give an empty string
-          component_separators = topSeparators,
-          section_separators = topSeparators,
+          component_separators = round_component_separator,
+          section_separators = round_section_separator,
           disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -78,11 +78,66 @@ return {
         },
         sections = {
           lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { 'filename' },
-          lualine_x = { lsp_clients, 'fileformat', 'filetype' },
-          lualine_y = { 'hostname' },
-          lualine_z = { 'location' },
+          lualine_b = {
+            { 'branch' },
+            { 'diff' },
+            {
+              'diagnostics',
+              update_in_insert = false,
+            },
+          },
+          lualine_c = {
+            {
+              'filename',
+              file_status = true,
+              path = 0,
+            },
+          },
+          lualine_x = {
+            { 'filetype' },
+          },
+          lualine_y = {
+            {
+              function()
+                local lsps = vim.lsp.get_active_clients { bufnr = vim.fn.bufnr() }
+                local icon = require('nvim-web-devicons').get_icon_by_filetype(vim.api.nvim_buf_get_option(0, 'filetype'))
+                if lsps and #lsps > 0 then
+                  local names = {}
+                  for _, lsp in ipairs(lsps) do
+                    table.insert(names, lsp.name)
+                  end
+                  return string.format('%s %s', table.concat(names, ', '), icon)
+                else
+                  return icon or ''
+                end
+              end,
+
+              on_click = function()
+                vim.api.nvim_command 'LspInfo'
+              end,
+              color = function()
+                local _, color = require('nvim-web-devicons').get_icon_cterm_color_by_filetype(vim.api.nvim_buf_get_option(0, 'filetype'))
+                return { fg = color }
+              end,
+            },
+            { 'hostname', icons_enabled = true, icon = '' },
+          },
+          lualine_z = {
+            {
+              'location',
+            },
+            {
+              function()
+                local starts = vim.fn.line 'v'
+                local ends = vim.fn.line '.'
+                local count = starts <= ends and ends - starts + 1 or starts - ends + 1
+                return count .. 'V'
+              end,
+              cond = function()
+                return vim.fn.mode():find '[Vv]' ~= nil
+              end,
+            },
+          },
         },
         inactive_sections = {
           lualine_a = {},
@@ -92,7 +147,14 @@ return {
           lualine_y = {},
           lualine_z = {},
         },
-        tabline = {},
+        tabline = {
+          lualine_a = { 'buffers' },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = { { 'tabs', mode = 1, path = 1, } },
+        },
         winbar = {},
         inactive_winbar = {},
         extensions = {},
