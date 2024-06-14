@@ -153,7 +153,7 @@ return {
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = { { 'tabs', mode = 1, path = 1, } },
+          lualine_z = { { 'tabs', mode = 1, path = 0, } },
         },
         winbar = {},
         inactive_winbar = {},
