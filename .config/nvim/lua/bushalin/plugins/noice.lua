@@ -25,7 +25,7 @@ return {
       -- you can enable a preset for easier configuration
       presets = {
         bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
+        command_palette = false, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
         inc_rename = true, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = true, -- add a border to hover docs and signature help
@@ -35,7 +35,7 @@ return {
         view = "mini", -- default view for messages
         view_error = "notify", -- view for errors
         view_warn = "notify", -- view for warnings
-        view_history = "messages", -- view for :messages
+        view_history = "notify", -- view for :messages
         view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
       }
     }
