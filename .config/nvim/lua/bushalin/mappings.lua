@@ -53,7 +53,7 @@ map('n', 'dl', ':diffget //3<cr>', { silent = true, desc = 'diffget right' })
 -- vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- maximize the window
-map('n', '<C-w>m', '<C-w>|<C-w>_', { desc = 'Maximize buffer' })
+-- map('n', '<C-w>m', '<C-w>|<C-w>_', { desc = 'Maximize buffer' })
 
 map('n', '<leader>cd', ':cd %:p:h<cr>:pwd<cr>', { desc = 'Change root directory to current' })
 
@@ -101,3 +101,5 @@ map('i', '<C-h>', '<Left>', { desc = 'move left' })
 map('i', '<C-l>', '<Right>', { desc = 'move right' })
 map('i', '<C-j>', '<Down>', { desc = 'move down' })
 map('i', '<C-k>', '<Up>', { desc = 'move up' })
+
+map('n', '<BS>', '<C-w>', { desc = 'Shortcut for window'})
