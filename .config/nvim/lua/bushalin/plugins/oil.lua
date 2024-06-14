@@ -30,9 +30,9 @@ return {
         concealcursor = 'nvic',
       },
       -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-      delete_to_trash = false,
+      delete_to_trash = true,
       -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-      skip_confirm_for_simple_edits = false,
+      skip_confirm_for_simple_edits = true,
       -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
       -- (:help prompt_save_on_select_new_entry)
       prompt_save_on_select_new_entry = true,
@@ -91,7 +91,7 @@ return {
         end,
         -- This function defines what will never be shown, even when `show_hidden` is set
         is_always_hidden = function(name, bufnr)
-          return false
+          return name == ' .. ' or name == '.git'
         end,
         -- Sort file names in a more intuitive order for humans. Is less performant,
         -- so you may want to set to false if you work with large directories.
@@ -119,7 +119,7 @@ return {
       -- Configuration for the floating window in oil.open_float
       float = {
         -- Padding around the floating window
-        padding = 2,
+        padding = 5,
         max_width = 0,
         max_height = 0,
         border = 'rounded',
