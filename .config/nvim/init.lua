@@ -40,6 +40,7 @@ require('lazy').setup({
 vim.schedule(function()
   require 'bushalin.mappings'
   require 'bushalin.autocmds'
+  vim.cmd.colorscheme 'gruvbox-material'
 end)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
