@@ -5,7 +5,7 @@ return {
       {
         '<leader>ft',
         '<CMD>Telescope colorscheme<CR>',
-        desc = { '[F]ind [T]heme by lazy loading' }
+        desc = '[F]ind [T]heme by lazy loading',
       },
     },
     opts = {
@@ -41,7 +41,7 @@ return {
         {
           '<leader>ft',
           '<CMD>Telescope colorscheme<CR>',
-          desc = { '[F]ind [T]heme by lazy loading' }
+          desc = '[F]ind [T]heme by lazy loading',
         },
       },
       name = 'catppuccin',
@@ -122,7 +122,7 @@ return {
       transparent_mode = false,
     },
     init = function()
-      vim.cmd.colorscheme 'gruvbox'
+      -- vim.cmd.colorscheme 'gruvbox'
     end,
   },
 
@@ -133,8 +133,58 @@ return {
       {
         '<leader>ft',
         '<CMD>Telescope colorscheme<CR>',
-        desc = { '[F]ind [T]heme by lazy loading' }
+        desc = '[F]ind [T]heme by lazy loading',
       },
     },
+  },
+
+  {
+    'rebelot/kanagawa.nvim',
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
+  },
+
+  {
+    'sainnhe/gruvbox-material',
+    config = function()
+      -- vim.cmd.colorscheme 'gruvbox-material'
+    end,
+  },
+
+  {
+    'christianchiarulli/nvcode-color-schemes.vim',
+  },
+
+  {
+    'comfysage/evergarden',
+  },
+
+  {
+    'glepnir/zephyr-nvim',
+  },
+
+  {
+    'ray-x/starry.nvim',
+  },
+
+  {
+    'lewpoly/sherbet.nvim',
+  },
+
+  {
+    'Mofiqul/adwaita.nvim',
+  },
+
+  {
+    'Yazeed1s/oh-lucy.nvim',
+  },
+
+  {
+    'mellow-theme/mellow.nvim',
   },
 }
