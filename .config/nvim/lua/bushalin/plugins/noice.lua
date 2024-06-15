@@ -10,7 +10,6 @@ return {
     -- OPTIONAL:
     --   `nvim-notify` is only needed, if you want to use the notification view.
     --   If not available, we use `mini` as the fallback
-    'rcarriga/nvim-notify',
   },
   config = function()
     require('noice').setup {
@@ -32,12 +31,12 @@ return {
       },
       messages = {
         enabled = true, -- enables the Noice messages UI
-        view = "mini", -- default view for messages
-        view_error = "notify", -- view for errors
-        view_warn = "notify", -- view for warnings
-        view_history = "notify", -- view for :messages
-        view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
-      }
+        view = 'mini', -- default view for messages
+        view_error = 'notify', -- view for errors
+        view_warn = 'notify', -- view for warnings
+        view_history = 'notify', -- view for :messages
+        view_search = 'virtualtext', -- view for search count messages. Set to `false` to disable
+      },
     }
 
     vim.keymap.set({ 'n', 'i', 's' }, '<c-f>', function()
