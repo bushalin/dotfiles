@@ -30,9 +30,34 @@ return {
       -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
       -- statusline.section_location = function()
-        -- return '%2l:%-2v'
+      -- return '%2l:%-2v'
       -- end
 
+      require('mini.splitjoin').setup()
+
+      require('mini.starter').setup {
+        items = nil,
+        header = [[
+   ___  __  ________ _____   __   _____  __
+  / _ )/ / / / __/ // / _ | / /  /  _/ |/ /
+ / _  / /_/ /\ \/ _  / __ |/ /___/ //    / 
+/____/\____/___/_//_/_/ |_/____/___/_/|_/  
+        ]],
+     --    footer = [[
+     --        _   _
+     --       (.)_(.)
+     --    _ (   _   ) _
+     --   / \/`-----'\/ \
+     -- __\ ( (     ) ) /__
+     -- )   /\ \._./ /\   (
+     --  )_/ /|\   /|\ \_(
+     --    ]]
+        footer = [[
+         />_________________________________
+[########[]_________________________________>
+         \>
+        ]]
+      }
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
