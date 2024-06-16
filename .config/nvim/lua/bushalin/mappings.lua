@@ -45,7 +45,7 @@ map('n', '<leader><cr>', ':noh<cr>', { silent = true })
 map('n', '<leader>si', ':source %<cr>', { silent = false, desc = 'Source file' })
 
 -- vim fugitive related
--- REMOVE WITH CAUTION
+-- WARN: REMOVE WITH CAUTION
 map('n', 'dh', ':diffget //2<cr>', { silent = true, desc = 'diffget left' })
 map('n', 'dl', ':diffget //3<cr>', { silent = true, desc = 'diffget right' })
 
