@@ -119,6 +119,13 @@ return {
       vim.keymap.set('n', '<leader>fn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[F]ind [N]eovim files' })
+
+      -- NOTE:
+      -- shortcut to open a custom directory with telescope
+      vim.keymap.set('n', '<leader>fo', function()
+        local notes_path = os.getenv 'HOME' .. '/Documents/obsidian/personal/'
+        builtin.find_files { cwd = notes_path }
+      end, { desc = '[F]ind [O]bsidian notes in vault' })
     end,
   },
 }
