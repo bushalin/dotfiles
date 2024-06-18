@@ -33,34 +33,34 @@ return {
       -- return '%2l:%-2v'
       -- end
 
+      -- NOTE:
+      -- split/join paramteres in a fucntion
       require('mini.splitjoin').setup()
 
-      require('mini.starter').setup {
-        items = nil,
+      -- NOTE:
+      -- Startup screen
+      local starter = require 'mini.starter'
+      starter.setup {
+        evaluate_single = true,
         header = [[
-   ___  __  ________ _____   __   _____  __
-  / _ )/ / / / __/ // / _ | / /  /  _/ |/ /
- / _  / /_/ /\ \/ _  / __ |/ /___/ //    / 
-/____/\____/___/_//_/_/ |_/____/___/_/|_/  
-        ]],
-     --    footer = [[
-     --        _   _
-     --       (.)_(.)
-     --    _ (   _   ) _
-     --   / \/`-----'\/ \
-     -- __\ ( (     ) ) /__
-     -- )   /\ \._./ /\   (
-     --  )_/ /|\   /|\ \_(
-     --    ]]
-        footer = [[
-         />_________________________________
-[########[]_________________________________>
-         \>
-        ]]
+         ___  __  ________ _____   __   _____  __
+        / _ )/ / / / __/ // / _ | / /  /  _/ |/ /
+       / _  / /_/ /\ \/ _  / __ |/ /___/ //    /
+      /____/\____/___/_//_/_/ |_/____/___/_/|_/
+              ]],
+        items = {
+          starter.sections.builtin_actions(),
+          starter.sections.recent_files(10, false),
+          starter.sections.recent_files(5, true),
+          starter.sections.telescope(),
+        },
+        content_hooks = {
+          starter.gen_hook.adding_bullet(),
+          starter.gen_hook.indexing('all', { 'Builtin actions' }),
+          starter.gen_hook.aligning('center', 'center'),
+          starter.gen_hook.padding(3, 2),
+        },
       }
-
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
 }
