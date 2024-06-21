@@ -2,9 +2,6 @@ return {
   {
     defaults = {
       lazy = true,
-      install = {
-        colorscheme = { 'gruvbox' },
-      },
     },
   },
   ui = {
