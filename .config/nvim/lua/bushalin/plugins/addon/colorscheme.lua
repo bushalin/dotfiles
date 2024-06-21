@@ -94,9 +94,8 @@ return {
 
   {
     'ellisonleao/gruvbox.nvim',
-    lazy = false,
+    lazy = true,
     config = true,
-    priority = 1000,
     opts = {
       terminal_colors = true, -- add neovim terminal colors
       undercurl = true,
@@ -152,7 +151,7 @@ return {
 
   {
     'sainnhe/gruvbox-material',
-    lazy = true,
+    lazy = false,
     config = function()
       -- vim.cmd.colorscheme 'gruvbox-material'
     end,
@@ -197,6 +196,7 @@ return {
   {
     'ray-x/starry.nvim',
     lazy = true,
+    enabled = false,
     keys = {
       {
         '<leader>ft',
