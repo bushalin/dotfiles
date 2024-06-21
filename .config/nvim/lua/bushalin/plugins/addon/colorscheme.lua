@@ -129,6 +129,7 @@ return {
   {
     'savq/melange-nvim',
     name = 'melange',
+    lazy = true,
     keys = {
       {
         '<leader>ft',
@@ -151,6 +152,7 @@ return {
 
   {
     'sainnhe/gruvbox-material',
+    lazy = true,
     config = function()
       -- vim.cmd.colorscheme 'gruvbox-material'
     end,
@@ -158,33 +160,97 @@ return {
 
   {
     'christianchiarulli/nvcode-color-schemes.vim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'comfysage/evergarden',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'glepnir/zephyr-nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'ray-x/starry.nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'lewpoly/sherbet.nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'Mofiqul/adwaita.nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'Yazeed1s/oh-lucy.nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 
   {
     'mellow-theme/mellow.nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>ft',
+        '<CMD>Telescope colorscheme<CR>',
+        desc = '[F]ind [T]heme by lazy loading',
+      },
+    },
   },
 }
