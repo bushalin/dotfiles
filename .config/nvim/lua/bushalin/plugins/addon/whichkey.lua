@@ -7,11 +7,12 @@ return {
 
       -- Document existing key chains
       require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore', c = { 'Codesnap [C]opy'}, s = { 'Codesnap [S]ave'} },
         ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore', l = { '[L]ive [G]rep' }, g = { '[G]it' }, t = { '[T]hemes'} },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = '[W]orkspace/[W]iki', _ = 'which_key_ignore' },
+        ['<leader>o'] = { name = '[O]bsidian', _ = 'which_key_ignore', n = {'Obsidian [N]ew'}, t = { 'Obsidian [T]emplate'} },
         ['<leader>t'] = { name = '[T]rouble', _ = 'which_key_ignore' },
         -- NOTE:
         -- you can specify second level of prefixes like this
