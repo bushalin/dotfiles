@@ -9,7 +9,7 @@ vim.g.notermguicolors = false
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-require 'bushalin.options'
+require 'bushalin.configs.options'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -21,7 +21,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: Here is where you install your plugins.
-local lazyconfig = require 'bushalin.lazy_config'
+local lazyconfig = require 'bushalin.configs.lazy_config'
 
 require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
@@ -33,13 +33,17 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  --
-  { import = 'bushalin.plugins' },
+
+  -- initialize all the core plugins that we absolutely need
+  { import = 'bushalin.plugins.core' },
+
+  -- addon plugins that we can live without but a nice QOL inprovement
+  { import = 'bushalin.plugins.addon' },
 }, lazyconfig)
 
 vim.schedule(function()
-  require 'bushalin.mappings'
-  require 'bushalin.autocmds'
+  require 'bushalin.configs.mappings'
+  require 'bushalin.configs.autocmds'
   vim.cmd.colorscheme 'gruvbox-material'
 end)
 
