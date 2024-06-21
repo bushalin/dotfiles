@@ -25,9 +25,9 @@ return {
         has_line_number = false,
         min_width = 0,
       }
-      require('codesnap').setup(opts)
       vim.keymap.set('x', '<leader>cc', '<cmd>\'<,\'>CodeSnap<cr>', { desc = '[C]odeSnap [C]opy' })
-      vim.keymap.set('x', '<leader>cs', '<cmd>CodeSnapSave<cr>', { desc = '[C]odeSnap [S]ave' })
+      vim.keymap.set('x', '<leader>cs', '<cmd>\'<,\'>CodeSnapSave<cr>', { desc = '[C]odeSnap [S]ave' })
+      require('codesnap').setup(opts)
     end,
   },
 }
