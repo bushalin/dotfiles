@@ -2,6 +2,7 @@
 vim.cmd [[autocmd FileType go setlocal shiftwidth=4 softtabstop=4 expandtab]]
 vim.cmd [[autocmd FileType c, cpp setlocal shiftwidth=2 softtabstop=2 expandtab]]
 vim.cmd [[autocmd FileType lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]]
+vim.cmd [[autocmd FileType markdown setlocal conceallevel=2]]
 
 -- autocmd for db (vim-dadbod)
 vim.cmd [[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]]
