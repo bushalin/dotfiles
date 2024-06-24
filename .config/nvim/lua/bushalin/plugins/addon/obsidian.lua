@@ -5,6 +5,7 @@ return {
     lazy = true,
     ft = '.md',
     event = 'BufEnter *.md',
+    keys = { '<leader>oo', '<leader>on', '<leader>od'},
     dependencies = {
       -- Required.
       'nvim-lua/plenary.nvim',
@@ -203,8 +204,9 @@ return {
         telescope.find_files { cwd = notes_path }
       end, {desc = '[O]bsidian [O]pen'})
 
-      vim.keymap.set('n', '<leader>on', '<cmd>ObsidianNew<cr>', { desc = 'obsidian new' })
-      vim.keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<cr>', { desc = 'obsidian template' })
+      vim.keymap.set('n', '<leader>on', '<cmd>ObsidianNew<cr>', { desc = '[O]bsidian [N]ew' })
+      vim.keymap.set('n', '<leader>od', '<cmd>ObsidianToday<cr>', { desc = '[O]bsidian [D]aily TODAY' })
+      vim.keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<cr>', { desc = '[O]bsidian [T]emplate' })
     end,
   },
 }
