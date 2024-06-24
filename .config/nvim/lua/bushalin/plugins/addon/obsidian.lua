@@ -197,6 +197,12 @@ return {
       }
       obsidian.setup(opts)
 
+      vim.keymap.set('n', '<leader>oo',function ()
+        local telescope = require('telescope.builtin')
+        local notes_path = os.getenv 'HOME' .. '/Documents/obsidian/personal/'
+        telescope.find_files { cwd = notes_path }
+      end, {desc = '[O]bsidian [O]pen'})
+
       vim.keymap.set('n', '<leader>on', '<cmd>ObsidianNew<cr>', { desc = 'obsidian new' })
       vim.keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<cr>', { desc = 'obsidian template' })
     end,
