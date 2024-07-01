@@ -65,7 +65,7 @@ return {
         ['<C-h>'] = 'actions.select_split',
         ['<C-t>'] = 'actions.select_tab',
         ['<C-p>'] = 'actions.preview',
-        ['<C-c>'] = 'actions.close',
+        ['<ESC>'] = 'actions.close',
         ['<C-l>'] = 'actions.refresh',
         ['-'] = 'actions.parent',
         ['_'] = 'actions.open_cwd',
