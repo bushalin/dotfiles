@@ -12,7 +12,13 @@ return {
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore', l = { '[L]ive [G]rep' }, g = { '[G]it' }, t = { '[T]hemes'} },
         ['<leader>w'] = { name = '[W]orkspace/[W]iki', _ = 'which_key_ignore' },
-        ['<leader>o'] = { name = '[O]bsidian', _ = 'which_key_ignore', n = {'Obsidian [N]ew'}, t = { 'Obsidian [T]emplate'} },
+        ['<leader>o'] = {
+          name = '[O]bsidian',
+          _ = 'which_key_ignore',
+          n = {'[O]bsidian [N]ew'},
+          t = { '[O]bsidian [T]emplate'},
+          d = { '[O]bsidian [D]aily'}
+        },
         ['<leader>t'] = { name = '[T]rouble', _ = 'which_key_ignore' },
         -- NOTE:
         -- you can specify second level of prefixes like this
