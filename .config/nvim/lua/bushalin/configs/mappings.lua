@@ -103,3 +103,6 @@ map('i', '<C-j>', '<Down>', { desc = 'move down' })
 map('i', '<C-k>', '<Up>', { desc = 'move up' })
 
 map('n', '<BS>', '<C-w>', { desc = 'Shortcut for window'})
+
+-- Keymapping to enable git
+map('n', '<localleader>g', '<cmd>G<CR>', { desc = '[G]it Fugitive' })
