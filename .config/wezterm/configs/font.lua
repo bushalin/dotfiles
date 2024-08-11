@@ -5,12 +5,10 @@ function font.apply(config)
   config.font_size = 15
   config.font = wezterm.font_with_fallback {
     {
-      family = "Monaspace Neon",
-      -- family = "Monaspace Argon",
-      -- family = 'Monaspace Xenon',
-      -- family = "Monaspace Radon",
-      -- family = "Monaspace Krypton",
-      weight = 'Light',
+      family = 'Monaspace Neon Var',
+      weight = 'Bold',
+      stretch = 'Normal',
+      style = 'Normal',
       harfbuzz_features = {
         'calt',
         'liga',
@@ -23,6 +21,7 @@ function font.apply(config)
         'ss06',
         'ss07',
         'ss08',
+        'ss09',
       },
     },
     {
@@ -31,15 +30,14 @@ function font.apply(config)
     },
   }
   config.font_rules = {
-    --
-    -- Italic (comments)
-    --
+
+    -- Normal
     {
       intensity = 'Normal',
-      italic = true,
+      italic = false,
       font = wezterm.font {
-        family = 'Monaspace Radon',
-        weight = 'ExtraLight',
+        family = 'Monaspace Neon',
+        weight = 'Bold',
         stretch = 'Normal',
         style = 'Normal',
         harfbuzz_features = {
@@ -54,18 +52,17 @@ function font.apply(config)
           'ss06',
           'ss07',
           'ss08',
+          'ss09',
         },
       },
     },
 
-    --
-    -- Bold (highlighting)
-    --
+    -- Bold
     {
       intensity = 'Bold',
       italic = false,
-      font = wezterm.font {
-        family = 'Monaspace Xenon',
+      font = wezterm.font_with_fallback {
+        family = 'Monaspace Neon',
         weight = 'Bold',
         stretch = 'Normal',
         style = 'Normal',
@@ -81,16 +78,69 @@ function font.apply(config)
           'ss06',
           'ss07',
           'ss08',
+          'ss09',
         },
       },
     },
+
+    -- Bold Italic
     {
       intensity = 'Bold',
       italic = true,
-      font = wezterm.font {
+      font = wezterm.font_with_fallback {
         family = 'Monaspace Xenon',
         weight = 'Bold',
+        stretch = 'SemiExpanded',
+        style = 'Italic',
+        harfbuzz_features = {
+          'calt',
+          'liga',
+          'dlig',
+          'ss01',
+          'ss02',
+          'ss03',
+          'ss04',
+          'ss05',
+          'ss06',
+          'ss07',
+          'ss08',
+          'ss09',
+        },
+      },
+    },
+    -- normal-intensity-and-italic
+    {
+      intensity = 'Normal',
+      italic = true,
+      font = wezterm.font_with_fallback {
+        family = 'Monaspace Xenon',
+        weight = 'Regular',
         stretch = 'Normal',
+        style = 'Italic',
+        harfbuzz_features = {
+          'calt',
+          'liga',
+          'dlig',
+          'ss01',
+          'ss02',
+          'ss03',
+          'ss04',
+          'ss05',
+          'ss06',
+          'ss07',
+          'ss08',
+          'ss09',
+        },
+      },
+    },
+
+    -- half-intensity-and-italic (half-bright or dim); use a lighter weight font
+    {
+      intensity = 'Half',
+      italic = true,
+      font = wezterm.font_with_fallback {
+        family = 'Monaspace Neon',
+        weight = 'Normal',
         style = 'Normal',
         harfbuzz_features = {
           'calt',
@@ -104,6 +154,32 @@ function font.apply(config)
           'ss06',
           'ss07',
           'ss08',
+          'ss09',
+        },
+      },
+    },
+
+    -- half-intensity-and-not-italic
+    {
+      intensity = 'Half',
+      italic = false,
+      font = wezterm.font_with_fallback {
+        family = 'Monaspace Neon',
+        weight = 'Normal',
+        style = 'Normal',
+        harfbuzz_features = {
+          'calt',
+          'liga',
+          'dlig',
+          'ss01',
+          'ss02',
+          'ss03',
+          'ss04',
+          'ss05',
+          'ss06',
+          'ss07',
+          'ss08',
+          'ss09',
         },
       },
     },
