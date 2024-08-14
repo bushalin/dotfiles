@@ -81,13 +81,7 @@ export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS:$PATH"
 
 export EDITOR=nvim
 
-# define all the aliases
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-alias ll="eza --color=always --long --git --icons=always"
-alias cd="z"
-alias d="kitty +kitten diff"
-alias link="ln -sf"
-alias s="sesh"
+source ~/.zsh.alias
 
 # alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
 # alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
