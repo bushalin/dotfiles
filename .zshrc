@@ -17,6 +17,7 @@ fi
 # zoxide        better way of navigation
 # starship      customizable prompt for any shell/ basically beautiful looking paths
 # oh-my-zsh     framwork for managing shell configuration
+# fzf-tab       autocomplete replacement for default zsh autocomplete
 
 case `uname` in
   "Linux") 
@@ -82,7 +83,5 @@ export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS:$PATH"
 export EDITOR=nvim
 
 source ~/.zsh.alias
-
-# alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
-# alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
+source ~/.zsh.functions
 
