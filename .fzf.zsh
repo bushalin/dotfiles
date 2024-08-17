@@ -33,6 +33,10 @@ fi
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OTPS="--preview 'eza --tree --color=always {} | head -200'"
 
+# Sourcing fzf-tab
+autoload -U compinit; compinit
+source ~/dotfiles/.config/fzf-tab/fzf-tab.plugin.zsh
+
 # Advanced customization of fzf options via _fzf_comprun function 
 # - The first argument to the function is the name of the command.
 # - You should make sure to pass the rest of the arguments to fzf.
