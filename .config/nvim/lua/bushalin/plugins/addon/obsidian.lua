@@ -5,7 +5,7 @@ return {
     lazy = true,
     ft = '.md',
     event = 'BufEnter *.md',
-    keys = { '<leader>oo', '<leader>on', '<leader>od' },
+    keys = { '<localleader>oo', '<localleader>on', '<localleader>od' },
     dependencies = {
       -- Required.
       'nvim-lua/plenary.nvim',
@@ -72,7 +72,7 @@ return {
             opts = { noremap = false, expr = true, buffer = true },
           },
           -- Toggle check-boxes.
-          ['<leader>ch'] = {
+          ['<localleader>ch'] = {
             action = function()
               return require('obsidian').util.toggle_checkbox()
             end,
@@ -249,15 +249,15 @@ return {
 
       -- NOTE:
       -- Set custom keymaps
-      vim.keymap.set('n', '<leader>oo', function()
+      vim.keymap.set('n', '<localleader>oo', function()
         local telescope = require 'telescope.builtin'
         local notes_path = os.getenv 'HOME' .. '/Documents/obsidian/personal/'
         telescope.find_files { cwd = notes_path }
       end, { desc = '[O]bsidian [O]pen' })
 
-      vim.keymap.set('n', '<leader>on', '<cmd>ObsidianNew<cr>', { desc = '[O]bsidian [N]ew' })
-      vim.keymap.set('n', '<leader>od', '<cmd>ObsidianToday<cr>', { desc = '[O]bsidian [D]aily TODAY' })
-      vim.keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<cr>', { desc = '[O]bsidian [T]emplate' })
+      vim.keymap.set('n', '<localleader>on', '<cmd>ObsidianNew<cr>', { desc = '[O]bsidian [N]ew' })
+      vim.keymap.set('n', '<localleader>od', '<cmd>ObsidianToday<cr>', { desc = '[O]bsidian [D]aily TODAY' })
+      vim.keymap.set('n', '<localleader>ot', '<cmd>ObsidianTemplate<cr>', { desc = '[O]bsidian [T]emplate' })
     end,
   },
 }
