@@ -65,8 +65,8 @@ return {
           gitsigns.diffthis '@'
         end, { desc = '[G]it [D]iff against last commit' })
         -- Toggles
-        map('n', '<leader>gtb', gitsigns.toggle_current_line_blame, { desc = '[G]it [T]oggle [b]lame line' })
-        map('n', '<leader>gtD', gitsigns.toggle_deleted, { desc = '[G]it [T]oggle [D]eleted' })
+        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[B]lame line' })
+        map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = 'Toggle [D]eleted' })
       end,
     },
   },
