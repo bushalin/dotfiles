@@ -85,3 +85,5 @@ export EDITOR=nvim
 source ~/.zsh.alias
 source ~/.zsh.functions
 
+autoload -U compinit; compinit
+source ~/dotfiles/.config/fzf-tab/fzf-tab.plugin.zsh
