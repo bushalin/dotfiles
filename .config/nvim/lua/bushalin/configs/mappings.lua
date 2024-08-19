@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'No highlight search' })
 
 -- Set : to enter command mode
 map('n', ';', ':')
@@ -102,7 +102,14 @@ map('i', '<C-l>', '<Right>', { desc = 'move right' })
 map('i', '<C-j>', '<Down>', { desc = 'move down' })
 map('i', '<C-k>', '<Up>', { desc = 'move up' })
 
-map('n', '<BS>', '<C-w>', { desc = 'Shortcut for window'})
+map('n', '<BS>', '<C-w>', { desc = 'Shortcut for window' })
+
+-- keymapping to toggle terminal
+map('n', '<localleader>"', '<cmd>!tmux split-window -v<CR>', { desc = '[T]mux [V]ertical' }) -- opens lazygit in a new tmux window
+map('n', '<localleader>%', '<cmd>!tmux split-window -h<CR>', { desc = '[T]mux [H]orizontal' }) -- opens lazygit in a new tmux window
 
 -- Keymapping to enable git
-map('n', '<localleader>g', '<cmd>G<CR>', { desc = '[G]it Fugitive' })
+map('n', '<localleader>gf', '<cmd>G<CR>', { desc = '[G]it Fugitive' })
+map('n', '<localleader>gl', '<cmd>!tmux new-window -c ' .. vim.fn.getcwd() .. ' -- lazygit <CR><CR>', { desc = '[G]it [L]azy' }) -- opens lazygit in a new tmux window
+
+map('n', '<localleader>y', '<cmd>!tmux new-window -c ' .. vim.fn.getcwd() .. ' -- yazi <CR><CR>', { desc = '[Y]azi' }) -- opens lazygit in a new tmux window
