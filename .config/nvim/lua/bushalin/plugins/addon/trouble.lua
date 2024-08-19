@@ -5,32 +5,32 @@ return {
     cmd = 'Trouble',
     keys = {
       {
-        '<leader>td',
+        '<localleader>td',
         '<cmd>Trouble diagnostics toggle<cr>',
         desc = '[T]rouble [D]iagnostics toggle',
       },
       {
-        '<leader>tD',
+        '<localleader>tD',
         '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
         desc = '[T]rouble buffer [D]iagnostics',
       },
       {
-        '<leader>ts',
+        '<localleader>ts',
         '<cmd>Trouble symbols toggle focus=false<cr>',
         desc = '[T]rouble [S]ymbols',
       },
       {
-        '<leader>tl',
+        '<localleader>tl',
         '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
         desc = '[T]rouble [L]SP diagnostics / references etc',
       },
       {
-        '<leader>tL',
+        '<localleader>tL',
         '<cmd>Trouble loclist toggle<cr>',
         desc = '[T]rouble [L]ocation List',
       },
       {
-        '<leader>tq',
+        '<localleader>tq',
         '<cmd>Trouble qflist toggle<cr>',
         desc = '[T]rouble [Q]uickfist List',
       },
