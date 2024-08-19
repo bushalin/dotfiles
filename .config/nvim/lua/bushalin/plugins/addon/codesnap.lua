@@ -2,7 +2,7 @@ return {
   {
     'mistricky/codesnap.nvim',
     build = 'make build_generator',
-    keys = { '<leader>cc' },
+    keys = { '<localleader>cc', mode = 'x' },
     -- keys = {
     --   { '<leader>cc', '<cmd>CodeSnap<cr>', mode = 'x', desc = 'Save selected code snapshot into clipboard' },
     --   { '<leader>cs', '<cmd>CodeSnapSave<cr>', mode = 'x', desc = 'Save selected code snapshot in ~/Pictures' },
@@ -25,8 +25,8 @@ return {
         has_line_number = false,
         min_width = 0,
       }
-      vim.keymap.set('x', '<leader>cc', '<cmd>\'<,\'>CodeSnap<cr>', { desc = '[C]odeSnap [C]opy' })
-      vim.keymap.set('x', '<leader>cs', '<cmd>\'<,\'>CodeSnapSave<cr>', { desc = '[C]odeSnap [S]ave' })
+      vim.keymap.set('x', '<localleader>cc', "<cmd>'<,'>CodeSnap<cr>", { desc = '[C]odeSnap [C]opy' })
+      vim.keymap.set('x', '<localleader>cs', "<cmd>'<,'>CodeSnapSave<cr>", { desc = '[C]odeSnap [S]ave' })
       require('codesnap').setup(opts)
     end,
   },
