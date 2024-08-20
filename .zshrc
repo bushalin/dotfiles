@@ -23,13 +23,13 @@ case `uname` in
   "Linux") 
     export BREW_HOME="/home/linuxbrew/.linuxbrew/bin"
     export PATH="$PATH:$BREW_HOME"
-  ;;
+    ;;
   "Darwin") 
     export PATH="/opt/homebrew/opt/openssl@3.1/bin:$PATH"
     export PATH=$PATH:/Users/hasibulhasan/go/bin/
     # If you come from bash you might have to change your $PATH.
     export PATH=$HOME/bin:/usr/local/bin:$PATH
-  ;;
+    ;;
   *) echo default
 esac
 
