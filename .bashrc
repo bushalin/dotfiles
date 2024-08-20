@@ -13,26 +13,17 @@ esac
 
 export BAT_THEME=gruvbox-dark
 
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-
 eval $(thefuck --alias)
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init bash)"
 
 alias cd="z"
 
-eval "$(starship init zsh)"
+eval "$(starship init bash)"
 #
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias d="kitty +kitten diff"
-alias gs="git status"
-alias link="ln -sf"
 
 # for docker to compile using the linux/amd64 instead of apple silicone
 
@@ -48,3 +39,5 @@ eval "$(tmuxifier init -)"
 export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
 
 export EDITOR=nvim
+source $HOME/dotfiles/.bash.alias
+source $HOME/dotfiles/.bash.functions
