@@ -3,7 +3,14 @@ function pkill() {
     ps aux | fzf --height 40% --layout=reverse --prompt="SELECT process to kill: " | awk '{print $2}' | xargs -r sudo kill
 }
 
-function create_tmux_session() {
+# Kill tmux sessions
+function tkill() {
+    tmux kill-session -t $(tmux ls | fzf --height 40% --layout=reverse --prompt="SELECT session to kill: " | awk '{print $1}' )
+}
+
+# Create a new tmux session if not exist
+# if exists -> attach to it
+function tns() {
     local RESULT="$1"
     zoxide add "$RESULT" &>/dev/null
     local FOLDER=$(basename "$RESULT")
