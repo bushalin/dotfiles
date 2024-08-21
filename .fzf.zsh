@@ -30,6 +30,7 @@ if [[ "$OS_VERSION" = "Darwin" ]]; then
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 fi
 
+export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OTPS="--preview 'eza --tree --color=always {} | head -200'"
 
