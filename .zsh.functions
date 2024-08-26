@@ -70,7 +70,7 @@ function t() {
 
     if [[ -z "${param}" ]]; then
         if [[ $(command -v zoxide) 2> /dev/null ]]; then
-            dirs=$(zoxide query --list)
+            dirs=$(t_list)
         fi
         selected=$(echo $dirs | fzf --height 40% --layout=reverse --border=rounded --border-label="Connect TMUX session")
     else
