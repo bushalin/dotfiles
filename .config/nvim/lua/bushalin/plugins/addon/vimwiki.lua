@@ -1,6 +1,7 @@
 return {
   {
     'vimwiki/vimwiki',
+    enabled = false,
     ft = '.md',
     event = 'BufEnter *.md',
     keys = { '<leader>ww', '<leader>wt', '<leader>ws' },
