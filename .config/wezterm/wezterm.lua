@@ -9,7 +9,8 @@ local user_configs = {
   colors = require 'configs.color_schemes',
   misc = require 'configs.misc',
   appearance = require 'configs.appearance',
-  wsl = require 'configs.wsl'
+  wsl = require 'configs.wsl',
+  ssh_hosts = require 'configs.ssh_hosts'
 }
 
 for i in pairs(user_configs) do

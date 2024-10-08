@@ -27,26 +27,27 @@ function background_preset_one(config, is_fullscreen)
 end
 
 function background_preset_two(config, is_fullscreen)
-  config.text_background_opacity = 1.00
+  config.text_background_opacity = 0.90
   config.background = {
     {
       source = {
-        File = { path = wezterm.config_dir .. '/assets/green-leaf-wallpaper.jpg' },
+        -- File = { path = wezterm.config_dir .. '/assets/star-wars-jedi-logo.jpg' },
+        File = wezterm.config_dir .. '/assets/star-wars-jedi-logo.jpg',
       },
       horizontal_align = 'Center',
       opacity = 1.00,
       hsb = {
         hue = 1.0,
-        saturation = 0.70,
-        brightness = 0.20,
+        saturation = 1.00,
+        brightness = 0.10,
       },
     },
   }
 end
 
-function background_preset_three(config, is_fullscreen)
+function background_preset_presentation(config, is_fullscreen)
   config.text_background_opacity = 1.00
-  config.window_background_opacity = 1.00
+  config.window_background_opacity = 0.95
   config.macos_window_background_blur = 20
   config.background = {
     {
@@ -73,7 +74,7 @@ function background_preset_three(config, is_fullscreen)
   }
 end
 
-function background_preset_four(config, is_fullscreen)
+function background_preset_three(config, is_fullscreen)
   config.text_background_opacity = 1.00
   -- config.window_background_opacity = 0.90
   config.window_background_gradient = {
@@ -118,9 +119,9 @@ wezterm.on('background_preset_three', function(window, pane)
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on('background_preset_four', function(window, pane)
+wezterm.on('background_preset_presentation', function(window, pane)
   local overrides = window:get_config_overrides() or {}
-  background_preset_four(overrides, window:get_dimensions().is_full_screen)
+  background_preset_presentation(overrides, window:get_dimensions().is_full_screen)
   window:set_config_overrides(overrides)
 end)
 
@@ -162,9 +163,9 @@ function keybinds.apply(config)
       action = wezterm.action.EmitEvent 'background_preset_three',
     },
     {
-      key = '4',
+      key = 'p',
       mods = 'LEADER',
-      action = wezterm.action.EmitEvent 'background_preset_four',
+      action = wezterm.action.EmitEvent 'background_preset_presentation',
     },
     { key = 'o', mods = 'ALT', action = wezterm.action.EmitEvent 'open-nvim-with-scrollback' },
     { key = 'h', mods = 'CMD', action = act.ActivatePaneDirection 'Left' },
