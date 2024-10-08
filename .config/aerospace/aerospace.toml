@@ -217,3 +217,8 @@ run = "move-node-to-workspace P"
 [[on-window-detected]]
 if.app-id='com.apple.finder'
 run = "move-node-to-workspace F"
+
+# If opened application is Excel => move to workspace F]
+[[on-window-detected]]
+if.app-id='com.microsoft.Excel'
+run = "move-node-to-workspace E"
