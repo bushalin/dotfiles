@@ -20,3 +20,6 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
+
+# ignoring github copilot files
+.config/github-copilot/
