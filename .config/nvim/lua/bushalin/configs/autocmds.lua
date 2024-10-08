@@ -1,14 +1,42 @@
--- autocmd for common filetypes
-vim.cmd [[autocmd FileType go setlocal shiftwidth=4 softtabstop=4 expandtab]]
-vim.cmd [[autocmd FileType c, cpp setlocal shiftwidth=2 softtabstop=2 expandtab]]
-vim.cmd [[autocmd FileType lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab]]
-vim.cmd [[autocmd FileType markdown setlocal conceallevel=2]]
+-- Create augroups for better organization
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
--- autocmd for db (vim-dadbod)
-vim.cmd [[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]]
+-- Autocmd for common filetypes
+augroup('filetype_settings', { clear = true })
+autocmd('FileType', {
+  group = 'filetype_settings',
+  pattern = 'go',
+  command = 'setlocal shiftwidth=4 softtabstop=4 expandtab'
+})
+autocmd('FileType', {
+  group = 'filetype_settings',
+  pattern = 'c,cpp',
+  command = 'setlocal shiftwidth=2 softtabstop=2 expandtab'
+})
+autocmd('FileType', {
+  group = 'filetype_settings',
+  pattern = 'lua,javascript,typescript,typescriptreact',
+  command = 'setlocal shiftwidth=2 softtabstop=2 expandtab'
+})
+autocmd('FileType', {
+  group = 'filetype_settings',
+  pattern = 'markdown',
+  command = 'setlocal conceallevel=2'
+})
+
+-- Autocmd for db (vim-dadbod)
+augroup('db_settings', { clear = true })
+autocmd('FileType', {
+  group = 'db_settings',
+  pattern = 'sql,mysql,plsql',
+  callback = function()
+    require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+  end
+})
 
 -- Go to the last edited position when opening a buffer
-vim.api.nvim_create_autocmd('BufReadPost', {
+autocmd('BufReadPost', {
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, '"')
     if mark[1] > 1 and mark[1] <= vim.api.nvim_buf_line_count(0) then
@@ -18,18 +46,17 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 -- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
+autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  group = augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
+-- Easy navigation in terminals
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
@@ -39,5 +66,9 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd [[autocmd! TermOpen term://* lua set_terminal_keymaps()]]
+-- If you only want these mappings for toggle term use term://*toggleterm#* instead
+autocmd('TermOpen', {
+  pattern = 'term://*',
+  callback = _G.set_terminal_keymaps
+})
+
