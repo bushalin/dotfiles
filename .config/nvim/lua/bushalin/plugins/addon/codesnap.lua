@@ -1,6 +1,7 @@
 return {
   {
     'mistricky/codesnap.nvim',
+    enabled = false,
     build = 'make build_generator',
     keys = { '<localleader>cc', mode = 'x' },
     -- keys = {
