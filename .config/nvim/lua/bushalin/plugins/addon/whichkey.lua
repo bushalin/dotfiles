@@ -26,6 +26,8 @@ return {
           { '<localleader>"', desc = '[T]mux Horizontal split' },
           { '<localleader>d', desc = '[D]ebug' },
           { '<localleader>dc', desc = '[D]ebug [C]ontinue/Start' },
+          { '<localleader>n', desc = '[N]otify' },
+          { '<localleader>w', desc = '[W]iki' },
         },
         {
           mode = { 'n' },
