@@ -1,6 +1,7 @@
 return {
   {
     'serenevoid/kiwi.nvim',
+    enabled = false,
     ft = '.md',
     event = 'BufEnter *.md',
     dependencies = {
@@ -34,6 +35,7 @@ return {
   {
     -- Better bullet points for markdown
     'bullets-vim/bullets.vim',
+    enabled = false,
     ft = 'markdown',
     event = 'BufEnter *.md',
   },
@@ -41,6 +43,7 @@ return {
   -- install with yarn or npm
   {
     'iamcco/markdown-preview.nvim',
+    enabled = false,
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     build = 'cd app && npm install',
     init = function()
@@ -52,6 +55,7 @@ return {
   {
     'hedyhli/outline.nvim',
     ft = '.md',
+    enabled = false,
     config = function()
       -- Example mapping to toggle outline
       vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { desc = 'Toggle Outline' })
