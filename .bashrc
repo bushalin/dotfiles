@@ -41,3 +41,6 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/.tmux/tmux-layouts"
 export EDITOR=nvim
 source $HOME/dotfiles/.bash.alias
 source $HOME/dotfiles/.bash.functions
+
+# Set `Vi` mode for bash
+set -o vi
