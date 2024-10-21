@@ -37,6 +37,9 @@ esac
 
 # =================== hasib configuration ====================
 #
+# Set Vi mode for zsh
+set -o vi
+
 export BAT_THEME=gruvbox-dark
 
 eval $(thefuck --alias)
@@ -50,7 +53,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 autoload -Uz compinit && compinit
 
 # for docker to compile using the linux/amd64 instead of apple silicone
-
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
