@@ -54,6 +54,8 @@ return {
           { '<leader>g', desc = '[G]it' },
           { '<leader>g_', hidden = true },
           { '<leader>gt', desc = '[T]oggle' },
+          { '<leader>gc', desc = '[G]it [C]opilot'},
+          { '<leader>gcm', desc = '[G]it [C]opilot [Message]' },
           { '<localleader>g', desc = '[G]it' },
           { '<localleader>g_', hidden = true },
         },
