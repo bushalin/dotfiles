@@ -8,21 +8,14 @@ return {
     config = function()
       local cmp = require 'cmp'
       require('copilot').setup {
-        panel = {
-          auto_refresh = true,
-          auto_close = true,
-        },
-        suggestion = {
-          auto_trigger = true,
-        },
+        suggestion = { enabled = false },
+        panel = { enabled = false },
 
         -- keybindings for copilot
         vim.keymap.set('i', '<C-y>', require('copilot.suggestion').accept, { silent = true }),
         vim.keymap.set('i', '<C-e>', require('copilot.suggestion').dismiss, { silent = true }),
-        vim.keymap.set('i', '<C-j>', require('copilot.suggestion').next, { silent = true }),
-        vim.keymap.set('i', '<C-k>', require('copilot.suggestion').prev, { silent = true }),
-        -- trigger copilot suggestion manually with <C-space>
-        vim.keymap.set('i', '<C-Space>', require('copilot.suggestion').toggle_auto_trigger, { silent = true }),
+        vim.keymap.set('i', '<C-n>', require('copilot.suggestion').next, { silent = true }),
+        vim.keymap.set('i', '<C-p>', require('copilot.suggestion').prev, { silent = true }),
 
         -- hide copilot when cmp menu is open and show when closed
         cmp.event:on('menu_opened', function()
@@ -49,9 +42,20 @@ return {
     end,
   },
 
+  -- copilot completion for cmp
+  {
+    'zbirenbaum/copilot-cmp',
+    enabled = false,
+    lazy = true,
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+  },
+
   {
     'CopilotC-Nvim/CopilotChat.nvim',
     enabled = false,
+    lazy = true,
     branch = 'canary',
     dependencies = {
       { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
@@ -68,6 +72,6 @@ return {
         -- keybindings for copilot chat
         vim.keymap.set('n', '<leader>gcm', '<cmd>CopilotChatCommitStaged<CR>', { silent = true }),
       }
-    end
+    end,
   },
 }
