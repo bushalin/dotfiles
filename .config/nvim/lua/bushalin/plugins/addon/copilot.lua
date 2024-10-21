@@ -56,6 +56,7 @@ return {
     'CopilotC-Nvim/CopilotChat.nvim',
     enabled = false,
     lazy = true,
+    cmd = 'CopilotChat',
     branch = 'canary',
     dependencies = {
       { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
