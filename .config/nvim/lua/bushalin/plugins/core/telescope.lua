@@ -22,9 +22,17 @@ return {
 
       telescope.setup {
         pickers = {
+          find_files = {
+            theme = 'ivy',
+          },
+          builtin = { theme = 'ivy' },
+          grep_string = { theme = 'ivy' },
+          live_grep = { theme = 'ivy' },
+          oldfiles = { theme = 'ivy' },
           colorscheme = { enable_preview = true },
         },
         extensions = {
+          fzf = {},
           ['ui-select'] = themes.get_dropdown(),
         },
       }
@@ -50,6 +58,8 @@ return {
       keymap('n', '<leader>fgs', builtin.git_status, { desc = '[F]ind [G]it [S]tatus' })
       keymap('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
       keymap('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+      keymap('n', '<leader>fO', function() builtin.live_grep({ search_dirs = vim.v.oldfiles }) end, { desc = '[F]ind in [O]ldfiles'})
 
       -- Advanced key mappings with additional configurations
       keymap('n', '<leader>/', function()
@@ -77,6 +87,12 @@ return {
       keymap('n', '<leader>fn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[F]ind [N]eovim files' })
+
+      keymap('n', '<leader>fs', function()
+        builtin.treesitter {
+          theme = 'cursor'
+        }
+      end, { desc = '[F]ind [S]ymbols'})
 
     end,
   },
