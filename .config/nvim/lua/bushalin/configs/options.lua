@@ -8,6 +8,9 @@ vim.opt.number = true
 -- Enable relative line numbers
 vim.opt.relativenumber = true
 
+-- Set swap file directory to one place
+vim.opt.dir = '/Users/hasibulhasan/.local/state/nvim/swap/'
+
 -- Enable mouse mode
 vim.opt.mouse = 'a'
 
