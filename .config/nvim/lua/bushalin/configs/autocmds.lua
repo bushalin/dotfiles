@@ -7,22 +7,22 @@ augroup('filetype_settings', { clear = true })
 autocmd('FileType', {
   group = 'filetype_settings',
   pattern = 'go',
-  command = 'setlocal shiftwidth=4 softtabstop=4 expandtab'
+  command = 'setlocal shiftwidth=8 softtabstop=8 expandtab',
 })
 autocmd('FileType', {
   group = 'filetype_settings',
   pattern = 'c,cpp',
-  command = 'setlocal shiftwidth=2 softtabstop=2 expandtab'
+  command = 'setlocal shiftwidth=2 softtabstop=2 expandtab',
 })
 autocmd('FileType', {
   group = 'filetype_settings',
   pattern = 'lua,javascript,typescript,typescriptreact',
-  command = 'setlocal shiftwidth=2 softtabstop=2 expandtab'
+  command = 'setlocal shiftwidth=2 softtabstop=2 expandtab',
 })
 autocmd('FileType', {
   group = 'filetype_settings',
   pattern = 'markdown',
-  command = 'setlocal conceallevel=2'
+  command = 'setlocal conceallevel=2',
 })
 
 -- Autocmd for db (vim-dadbod)
@@ -31,8 +31,8 @@ autocmd('FileType', {
   group = 'db_settings',
   pattern = 'sql,mysql,plsql',
   callback = function()
-    require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
-  end
+    require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+  end,
 })
 
 -- Go to the last edited position when opening a buffer
@@ -69,6 +69,5 @@ end
 -- If you only want these mappings for toggle term use term://*toggleterm#* instead
 autocmd('TermOpen', {
   pattern = 'term://*',
-  callback = _G.set_terminal_keymaps
+  callback = _G.set_terminal_keymaps,
 })
-

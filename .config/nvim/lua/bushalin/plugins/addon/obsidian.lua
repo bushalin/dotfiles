@@ -1,7 +1,7 @@
 return {
   {
     'epwalsh/obsidian.nvim',
-    enabled = false,
+    enabled = true,
     version = '*', -- recommended, use latest release instead of latest commit
     lazy = true,
     ft = '.md',
@@ -77,7 +77,7 @@ return {
             action = function()
               return require('obsidian').util.toggle_checkbox()
             end,
-            opts = { buffer = true },
+            opts = { buffer = true, desc = "[O]bsidian toggle checkbox" },
           },
           -- Smart action depending on context, either follow link or toggle checkbox.
           ['<cr>'] = {
@@ -129,16 +129,16 @@ return {
         --  * "prepend_note_path", e.g. '[[foo-bar.md|Foo Bar]]'
         --  * "use_path_only", e.g. '[[foo-bar.md]]'
         -- Or you can set it to a function that takes a table of options and returns a string, like this:
-        wiki_link_func = 'use_alias_only',
-        -- wiki_link_func = function(opts)
-        --   return require('obsidian.util').wiki_link_id_prefix(opts)
-        -- end,
+        -- wiki_link_func = 'use_alias_only',
+        wiki_link_func = function(opts)
+          return require('obsidian.util').wiki_link_id_prefix(opts)
+        end,
 
         -- Optional, customize how markdown links are formatted.
-        markdown_link_func = 'use_alias_only',
-        -- markdown_link_func = function(opts)
-        --   return require('obsidian.util').markdown_link(opts)
-        -- end,
+        -- markdown_link_func = 'use_alias_only',
+        markdown_link_func = function(opts)
+          return require('obsidian.util').markdown_link(opts)
+        end,
 
         -- Either 'wiki' or 'markdown'.
         preferred_link_style = 'markdown',
@@ -244,6 +244,30 @@ return {
             ObsidianBlockID = { italic = true, fg = '#89ddff' },
             ObsidianHighlightText = { bg = '#75662e' },
           },
+        },
+        attachments = {
+          -- The default folder to place images in via `:ObsidianPasteImg`.
+          -- If this is a relative path it will be interpreted as relative to the vault root.
+          -- You can always override this per image by passing a full path to the command instead of just a filename.
+          img_folder = 'assets/images', -- This is the default
+
+          -- Optional, customize the default name or prefix when pasting images via `:ObsidianPasteImg`.
+          ---@return string
+          img_name_func = function()
+            -- Prefix image names with timestamp.
+            return string.format('%s-', os.time())
+          end,
+
+          -- A function that determines the text to insert in the note when pasting an image.
+          -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
+          -- This is the default implementation.
+          ---@param client obsidian.Client
+          ---@param path obsidian.Path the absolute path to the image file
+          ---@return string
+          img_text_func = function(client, path)
+            path = client:vault_relative_path(path) or path
+            return string.format('![%s](%s)', path.name, path)
+          end,
         },
       }
       obsidian.setup(opts)

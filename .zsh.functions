@@ -8,6 +8,10 @@ function tkill() {
     tmux kill-session -t $(tmux ls | fzf --height 40% --layout=reverse --prompt="SELECT session to kill: " | awk '{print $1}' )
 }
 
+function fo() {
+    nvim $(rg --files-with-matches "$1" | fzf --preview 'bat -n --color=always --line-range :500 {}')
+}
+
 # Create a new tmux session if not exist
 # if exists -> attach to it
 function tns() {

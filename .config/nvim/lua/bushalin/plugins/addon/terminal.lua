@@ -1,15 +1,21 @@
 return {
   {
     -- amongst your other plugins
-    {'akinsho/toggleterm.nvim', version = "*", config = true}
+    {
+      'akinsho/toggleterm.nvim',
+      enabled = false,
+      version = '*',
+      config = true,
+    },
   },
   {
-    "ryanmsnyder/toggleterm-manager.nvim",
+    'ryanmsnyder/toggleterm-manager.nvim',
+    enabled = false,
     dependencies = {
-      "akinsho/nvim-toggleterm.lua",
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- only needed because it's a dependency of telescope
+      'akinsho/nvim-toggleterm.lua',
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim', -- only needed because it's a dependency of telescope
     },
-    config = true,
-  }
+    config = false,
+  },
 }

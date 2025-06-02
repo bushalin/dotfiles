@@ -8,6 +8,9 @@ vim.opt.number = true
 -- Enable relative line numbers
 vim.opt.relativenumber = true
 
+-- Set swap file directory to one place
+vim.opt.dir = '/Users/hasibulhasan/.local/state/nvim/swap/'
+
 -- Enable mouse mode
 vim.opt.mouse = 'a'
 
@@ -53,11 +56,8 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 10
 
--- [[ Basic Keymaps ]]
--- See `:help vim.keymap.set()`
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 
 -- Set local softtabstop
 vim.opt.shiftwidth = 4

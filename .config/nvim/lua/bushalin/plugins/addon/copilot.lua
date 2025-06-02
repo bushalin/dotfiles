@@ -45,7 +45,7 @@ return {
   -- copilot completion for cmp
   {
     'zbirenbaum/copilot-cmp',
-    enabled = false,
+    enabled = true,
     lazy = true,
     config = function()
       require('copilot_cmp').setup()
@@ -54,7 +54,7 @@ return {
 
   {
     'CopilotC-Nvim/CopilotChat.nvim',
-    enabled = false,
+    enabled = true,
     lazy = true,
     cmd = 'CopilotChat',
     branch = 'canary',

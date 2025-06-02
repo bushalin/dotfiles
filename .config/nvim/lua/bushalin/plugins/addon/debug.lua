@@ -146,8 +146,8 @@ return {
         mode = 'remote',
         request = 'attach',
         substitutePath = {
-          { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go' },
-          { from = '${workspaceFolder}', to = '/path/in/container' },
+          { from = '/opt/homebrew/Cellar/go/1.22.4/libexec', to = '/usr/local/go' },
+          { from = '${workspaceFolder}', to = '/app' },
         },
       })
 
@@ -158,8 +158,8 @@ return {
         mode = 'remote',
         request = 'attach',
         substitutePath = {
-          { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go' },
-          { from = '${workspaceFolder}', to = '/path/in/contianer' },
+          { from = '/opt/homebrew/Cellar/go/1.22.4/libexec', to = '/usr/local/go' },
+          { from = '${workspaceFolder}', to = '/app' },
         },
       })
 

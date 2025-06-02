@@ -42,10 +42,15 @@ map('n', 'N', 'Nzzzv', { desc = 'Previous search result and center' })
 -- Miscellaneous
 map('n', '<leader><cr>', ':noh<cr>', { silent = true, desc = 'Clear search highlights' })
 map('n', '<leader>si', ':source %<cr>', { desc = 'Source file' })
-map('n', 'dh', ':diffget //2<cr>', { silent = true, desc = 'diffget left' })
-map('n', 'dl', ':diffget //3<cr>', { silent = true, desc = 'diffget right' })
+-- map('n', 'dh', ':diffget //2<cr>', { silent = true, desc = 'diffget left' })
+-- map('n', 'dl', ':diffget //3<cr>', { silent = true, desc = 'diffget right' })
 map('n', '<leader>cd', ':cd %:p:h<cr>:pwd<cr>', { desc = 'Change root directory to current' })
 map('n', '<BS>', '<C-w>', { desc = 'Shortcut for window' })
+
+if vim.api.nvim_win_get_option(0, "diff") then
+  map('n', 'dh', ':diffget //2<cr>', { silent = true, desc = 'diffget left' })
+  map('n', 'dl', ':diffget //3<cr>', { silent = true, desc = 'diffget right' })
+end
 
 -- Tmux integration
 map('n', '<localleader>"', '<cmd>!tmux split-window -v<CR>', { desc = '[T]mux [V]ertical' })
@@ -54,3 +59,9 @@ map('n', '<localleader>gf', '<cmd>G<CR>', { desc = '[G]it Fugitive' })
 map('n', '<localleader>gl', '<cmd>!tmux new-window -c ' .. vim.fn.getcwd() .. ' -- lazygit <CR><CR>', { desc = '[G]it [L]azy' })
 map('n', '<localleader>y', '<cmd>!tmux new-window -c ' .. vim.fn.getcwd() .. ' -- yazi <CR><CR>', { desc = '[Y]azi' })
 
+-- Experimental
+-- remove word under cursor and enter insert mode
+map('n', '<C-c>', 'ciw', { desc = 'Remove word under cursor and enter insert mode' })
+
+-- Duplicate a line and comment out the first line
+map('n', 'yc', 'yygccp')

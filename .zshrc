@@ -105,3 +105,21 @@ export EDITOR=nvim
 
 source ~/.zsh.alias
 source ~/.zsh.functions
+
+
+# dotnet settings needed
+# jpeg
+export LDFLAGS="-L/opt/homebrew/opt/jpeg/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+
+# openblas
+export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"
+
+# export gopath
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/go/bin
