@@ -20,7 +20,8 @@ return {
       -- NOTE:
       -- Show lsp progress in the lualine
       local lsp_progress = function()
-        local messages = vim.lsp.util.get_progress_messages()
+        -- local messages = vim.lsp.util.get_progress_messages()
+        local message = vim.lsp.status()
         if #messages == 0 then
           return
         end
@@ -116,7 +117,8 @@ return {
                 vim.api.nvim_command 'LspInfo'
               end,
               color = function()
-                local _, color = require('nvim-web-devicons').get_icon_cterm_color_by_filetype(vim.api.nvim_buf_get_option(0, 'filetype'))
+                local _, color = require('nvim-web-devicons').get_icon_cterm_color_by_filetype(vim.api
+                  .nvim_buf_get_option(0, 'filetype'))
                 return { fg = color }
               end,
             },

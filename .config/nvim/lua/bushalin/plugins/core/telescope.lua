@@ -24,6 +24,7 @@ return {
         pickers = {
           find_files = {
             theme = 'ivy',
+            push_tagstack_on_edit = true
           },
           builtin = { theme = 'ivy' },
           grep_string = { theme = 'ivy' },
@@ -93,6 +94,10 @@ return {
           theme = 'cursor'
         }
       end, { desc = '[F]ind [S]ymbols'})
+
+      keymap('n', '<localleader>n', function()
+        builtin.find_files { cwd = '~/hasib/notes' }
+      end, { desc = '[F]ind [N]otes'})
 
     end,
   },
