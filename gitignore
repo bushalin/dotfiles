@@ -23,3 +23,5 @@ node_modules
 
 # ignoring github copilot files
 .config/github-copilot/
+.config/gh/
+.config/raycast
