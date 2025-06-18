@@ -68,6 +68,10 @@ return {
 
   {
     'Kicamon/markdown-table-mode.nvim',
+    enabled = true,
+    lazy = true,
+    ft = '.md',
+    cmd = { 'Mtm' },
     config = function()
       require('markdown-table-mode').setup()
     end,

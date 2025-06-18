@@ -1,6 +1,9 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {
+    'Saghen/blink.compat',
+    'rafamadriz/friendly-snippets',
+  },
 
   -- use a release tag to download pre-built binaries
   version = '1.*',
@@ -27,13 +30,13 @@ return {
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'mono'
+      nerd_font_variant = 'mono',
     },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
       documentation = {
-        auto_show = true
+        auto_show = true,
       },
     },
 
@@ -42,7 +45,30 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      -- default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = {
+        'lsp',
+        'path',
+        'snippets',
+        'buffer',
+        'obsidian',
+        'obsidian_new',
+        'obsidian_tags',
+      },
+      providers = {
+        obsidian = {
+          name = 'obsidian',
+          module = 'blink.compat.source',
+        },
+        obsidian_new = {
+          name = 'obsidian_new',
+          module = 'blink.compat.source',
+        },
+        obsidian_tags = {
+          name = 'obsidian_tags',
+          module = 'blink.compat.source',
+        },
+      },
     },
 
     signature = { enabled = true },
@@ -52,7 +78,7 @@ return {
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { 'sources.default' },
 }

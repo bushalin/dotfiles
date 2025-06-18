@@ -7,6 +7,7 @@ return {
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
+      pickers = { enabled = true },
       dashboard = {
         preset = {
           header = [[
