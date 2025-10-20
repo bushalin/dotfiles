@@ -4,6 +4,9 @@ return {
     enabled = true,
     lazy = true,
     cmd = 'CopilotChat',
+    keys = {
+      { '<leader>ct', ':CopilotChatToggle<cr>', { desc = 'Copilot Chat Toggle' } },
+    },
     branch = 'main',
     dependencies = {
       { 'github/copilot.vim' }, -- or github/copilot.vim
@@ -11,7 +14,20 @@ return {
     },
     build = 'make tiktoken', -- Only on MacOS or Linux
     opts = {
-      debug = true, -- Enable debugging
+      debug = false, -- Enable debugging
+      chat_autocomplete = true,
+      auto_insert_mode = false,
+      window = {
+        layout =  'vertical',
+        width = 0.5,
+        border = {
+          style = 'rounded',
+          text = {
+            top = ' Copilot Chat ',
+            top_align = 'left'
+          }
+        }
+      }
       -- See Configuration section for rest
     },
     -- -- See Commands section for default commands if you want to lazy load on them
