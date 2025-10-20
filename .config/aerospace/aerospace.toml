@@ -217,3 +217,13 @@ run = "move-node-to-workspace F"
 [[on-window-detected]]
 if.app-id='com.microsoft.Excel'
 run = "move-node-to-workspace E"
+
+# If opened application is docker => move to workspace F]
+[[on-window-detected]]
+if.app-id='com.docker.docker'
+run = "move-node-to-workspace 1"
+
+# If opened application is insomnia => move to workspace F]
+[[on-window-detected]]
+if.app-id='com.docker.docker'
+run = "move-node-to-workspace 2"
