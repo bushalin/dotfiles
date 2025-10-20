@@ -1,3 +1,4 @@
+local jdtls = require "java.utils.jdtls"
 return {
   -- LSP Plugins
   {
@@ -210,6 +211,7 @@ return {
       local servers = {
         -- clangd = {},
         gopls = {},
+        jdtls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -220,6 +222,8 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+
+        omnisharp = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -236,6 +240,7 @@ return {
           },
         },
       }
+
 
       -- Ensure the servers and tools above are installed
       --
@@ -272,5 +277,4 @@ return {
       }
     end,
   },
-
 }

@@ -1,3 +1,4 @@
+-- local Snacks = require('snacks')
 return {
   'saghen/blink.cmp',
   dependencies = {
@@ -10,6 +11,25 @@ return {
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
+  --   opts = function(_, opts)
+  --   vim.b.completion = false
+  --
+  --   Snacks.toggle({
+  --     name = "Completion",
+  --     get = function()
+  --       return vim.b.completion
+  --     end,
+  --     set = function(state)
+  --       vim.b.completion = state
+  --     end,
+  --   }):map("<leader>uk")
+  --
+  --   opts.enabled = function()
+  --     return vim.b.completion ~= false
+  --   end
+  --   return opts
+  -- end,
+
   opts = {
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -30,17 +50,20 @@ return {
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'mono',
+      nerd_font_variant = 'normal',
     },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
       documentation = {
-        auto_show = true,
+        auto_show = false,
       },
     },
 
-    list = { selection = { preselect = false, auto_insert = true } },
+    list = { selection = {
+      preselect = false,
+      auto_insert = false
+    } },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`

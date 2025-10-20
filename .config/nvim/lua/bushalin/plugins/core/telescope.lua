@@ -46,19 +46,19 @@ return {
 
       -- Key mappings for Telescope
       local keymap = vim.keymap.set
-      keymap('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+      -- keymap('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
       keymap('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-      keymap('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-      keymap('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
+      -- keymap('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+      -- keymap('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
       keymap('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
       keymap('n', '<leader>flg', builtin.live_grep, { desc = '[F]ind [L]ive [G]rep' })
-      keymap('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
-      keymap('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
-      keymap('n', '<leader>fm', builtin.marks, { desc = '[F]ind [M]arks' })
+      -- keymap('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
+      -- keymap('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
+      -- keymap('n', '<leader>fm', builtin.marks, { desc = '[F]ind [M]arks' })
       keymap('n', '<leader>fgc', builtin.git_commits, { desc = '[F]ind [G]it [C]ommits' })
       keymap('n', '<leader>fgs', builtin.git_status, { desc = '[F]ind [G]it [S]tatus' })
       keymap('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
-      keymap('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      -- keymap('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       keymap('n', '<leader>fO', function() builtin.live_grep({ search_dirs = vim.v.oldfiles }) end, { desc = '[F]ind in [O]ldfiles'})
 
@@ -84,16 +84,6 @@ return {
           no_ignore = true,
         }
       end, { desc = '[F]ind [A]ll files' })
-
-      keymap('n', '<leader>fn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[F]ind [N]eovim files' })
-
-      keymap('n', '<leader>fs', function()
-        builtin.treesitter {
-          theme = 'cursor'
-        }
-      end, { desc = '[F]ind [S]ymbols'})
 
       keymap('n', '<localleader>n', function()
         builtin.find_files { cwd = '~/hasib/notes' }
